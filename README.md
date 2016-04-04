@@ -1,7 +1,7 @@
 ## README
 ![Build Status](https://codeship.com/projects/6c243d20-dcca-0133-3593-0a7d4da1657a/status?branch=master)
-![Code Climate](https://codeclimate.com/github/n8goodman/book_store_app.png)
-![Coverage Status](https://coveralls.io/repos/n8goodman/book_store_app/badge.png)
+![Code Climate](https://codeclimate.com/github/N8Goodman/book_store_app.png)
+![Coverage Status](https://coveralls.io/repos/N8Goodman/book_store_app/badge.png)
 
 
 Ruby 2.3.0
