@@ -1,0 +1,22 @@
+<h1 id="bookstore_title"><%= @bookstore.name.capitalize %></h1>
+  <h4 id="bookstore_location"><%= @bookstore.address%><%= @bookstore.city%><%= @bookstore.state%><%= @bookstore.zip_code%></h4>
+
+  <div id="bookstore_image">
+    <img src=<%= @bookstore.img_url%>>
+  </div>
+
+  <div id="bookstore_website">
+    <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
+  </div>
+
+  <div id="bookstore_description">
+    Description: <%= @bookstore.description if @bookstore.description %>
+  </div>
+
+  <div id="bookstore_food">
+    This bookstore serves food!
+  </div if @bookstore.food>
+
+  <div id="bookstore_beverages">
+    This bookstore serves beverages!
+  </div if @bookstore.beverage>
