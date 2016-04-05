@@ -1,6 +1,4 @@
 class BookstoresController < ApplicationController
-
-
   def index
     @bookstores = Bookstore.all
   end
@@ -36,20 +34,18 @@ class BookstoresController < ApplicationController
   end
 
   private
-
     def bookstore_params
       params.require(:bookstore).permit(
-      :name,
-      :address,
-      :city,
-      :state,
-      :zip_code,
-      :description,
-      :url,
-      :img_url,
-      :beverage,
-      :food
+        :name,
+        :address,
+        :city,
+        :state,
+        :zip_code,
+        :description,
+        :url,
+        :img_url,
+        :beverage,
+        :food
       )
     end
-
 end

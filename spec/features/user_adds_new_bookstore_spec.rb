@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 feature "user adds a new bookstore page" do
   scenario 'user successfully adds a bookstore' do
     visit '/'
@@ -22,13 +23,14 @@ feature "user adds a new bookstore page" do
 
     click_button "Add Bookstore"
 
-    expect(page).to have_content ("
+    expect(page).to have_content "
     Name can't be blank,
     Address can't be blank,
     City can't be blank,
     Zip code is not a number,
-    Zip code is the wrong length (should be 5 characters)"
-    )
+    Zip code is the wrong length (should be 5 characters)
+    "
+
   end
 
   scenario 'user tries to submit an incomplete form' do

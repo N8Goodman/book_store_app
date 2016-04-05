@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 feature "user sees a list of book stores" do
   zip = "18900"
   let!(:bookends) do
@@ -15,20 +16,22 @@ feature "user sees a list of book stores" do
       food: true
     )
   end
+
   let!(:barnes) do
     Bookstore.create(
-    name: "Barnes and Noble",
-    address: "110 Corporate Drive",
-    city: "Boston",
-    state: "MA",
-    zip_code: zip.to_i,
-    url: "http://www.bookendswinchester.com/",
-    img_url: "http://www.booksite.com/cilla/bookends/CAIZ8923.jpg",
-    description: "A yuge chain",
-    beverage: true,
-    food: true
+      name: "Barnes and Noble",
+      address: "110 Corporate Drive",
+      city: "Boston",
+      state: "MA",
+      zip_code: zip.to_i,
+      url: "http://www.bookendswinchester.com/",
+      img_url: "http://www.booksite.com/cilla/bookends/CAIZ8923.jpg",
+      description: "A yuge chain",
+      beverage: true,
+      food: true
     )
   end
+  
   scenario 'user visits home page to view list of book stores' do
     visit '/'
 
