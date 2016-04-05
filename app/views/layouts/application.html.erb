@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <div class="notices">
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <%= content_tag :div, msg, :class => "flash_#{name}" %>
+        <% end %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

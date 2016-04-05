@@ -1,0 +1,12 @@
+<h1>Litteralist Reviews:</h1>
+
+<ul id="bookstore_list">
+  <% @bookstores.each do | bookstore |%>
+    <li class="bookstore">
+       <%= link_to bookstore.name, bookstore_path(bookstore) %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Add New Bookstore", new_bookstore_path %>
