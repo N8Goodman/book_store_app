@@ -1,5 +1,5 @@
 <h4>Add Review:</h4>
-<br>
+
 <%= form_for [@bookstore, @review] do |f| %>
   <div class="required_field">
     <%= f.label :overall_rating, "Overall Rating" %>
@@ -44,5 +44,4 @@
   <div>
     <%= f.submit "Add Review" %>
   </div>
-
 <% end %>

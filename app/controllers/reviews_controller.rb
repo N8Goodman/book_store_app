@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
   def create
     @bookstore = Bookstore.find(params[:bookstore_id])
     @review = Review.new(review_params)
-    @review.bookstore = @bookstore
     if @review.save
       flash[:notice] = "Review successfully added!"
       redirect_to bookstore_path(@bookstore)
@@ -24,6 +23,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+
     def review_params
       params.require(:review).permit(
         :overall_rating,
@@ -34,6 +34,6 @@ class ReviewsController < ApplicationController
         :food_rating,
         :atmosphere_rating,
         :body
-      )
+      ).merge(bookstore: @bookstore, user: current_user)
     end
 end

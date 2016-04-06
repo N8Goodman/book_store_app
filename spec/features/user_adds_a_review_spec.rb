@@ -18,7 +18,7 @@ feature "user sees a specific bookstore page" do
   end
 
   scenario 'user visits page for a specific bookstore' do
-    visit '/'
+    visit root_path
 
     click_link 'Bookends'
     fill_in "Comments:", with: "This place is awesome!"
@@ -29,5 +29,6 @@ feature "user sees a specific bookstore page" do
     select '5', from: 'Customer Service Rating'
 
     click_button 'Add Review'
+    expect(page).to have_content "Error"
   end
 end

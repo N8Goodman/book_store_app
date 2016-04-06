@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "user adds a new bookstore page" do
   scenario 'user successfully adds a bookstore' do
-    visit '/'
+    visit root_path
 
     click_link "Add New Bookstore"
 
@@ -17,7 +17,7 @@ feature "user adds a new bookstore page" do
   end
 
   scenario 'user tries to submit a blank form' do
-    visit '/'
+    visit root_path
 
     click_link "Add New Bookstore"
 
@@ -34,7 +34,7 @@ feature "user adds a new bookstore page" do
   end
 
   scenario 'user tries to submit an incomplete form' do
-    visit '/'
+    visit root_path
 
     click_link "Add New Bookstore"
 
@@ -48,7 +48,7 @@ feature "user adds a new bookstore page" do
   end
 
   scenario 'user tries to submit an invalid zip' do
-    visit '/'
+    visit root_path
 
     click_link "Add New Bookstore"
 

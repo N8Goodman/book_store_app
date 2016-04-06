@@ -26,7 +26,7 @@
   <% end %>
 
   <h3>Reviews:</h3>
-  
+
     <ul id="review_list">
       <% @reviews.each do |review| %>
         <li>
@@ -39,6 +39,6 @@
     </ul>
   <br>
 
-  <%= render './reviews/form' %>
+  <%= render '/reviews/form' %>
 
 <%= link_to "Home", bookstores_path %>

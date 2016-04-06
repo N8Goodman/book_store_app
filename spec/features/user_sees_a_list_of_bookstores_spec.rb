@@ -31,9 +31,9 @@ feature "user sees a list of book stores" do
       food: true
     )
   end
-  
+
   scenario 'user visits home page to view list of book stores' do
-    visit '/'
+    visit root_path
 
     expect(page).to have_content('Bookends')
     expect(page).to have_content('Barnes and Noble')

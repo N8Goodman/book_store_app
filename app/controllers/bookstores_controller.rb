@@ -37,6 +37,7 @@ class BookstoresController < ApplicationController
   end
 
   private
+  
     def bookstore_params
       params.require(:bookstore).permit(
         :name,

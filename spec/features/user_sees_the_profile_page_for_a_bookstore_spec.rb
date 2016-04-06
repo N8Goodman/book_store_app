@@ -31,9 +31,9 @@ feature "user sees a specific bookstore page" do
       food: true
     )
   end
-  
+
   scenario 'user visits page for a specific bookstore' do
-    visit '/'
+    visit root_path
 
     click_link 'Bookends'
 
