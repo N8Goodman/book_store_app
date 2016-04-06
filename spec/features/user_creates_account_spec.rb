@@ -33,7 +33,7 @@ feature "user authentication" do
     fill_in "Password", with: user1.password
     fill_in "Password confirmation", with: user1.password
 
-    click_on "Sign Up"
+    click_on "Create Account"
 
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
@@ -45,7 +45,7 @@ feature "user authentication" do
     fill_in "Email", with: user2.email
     fill_in "Password", with: user2.password
     fill_in "Password confirmation", with: "Ooga Booga"
-    click_on "Sign Up"
+    click_on "Create Account"
 
     expect(page).to_not have_content "Welcome! You have signed up successfully."
     expect(page).to have_content "confirmation doesn't match Password"
