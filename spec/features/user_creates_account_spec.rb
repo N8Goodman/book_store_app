@@ -1,7 +1,7 @@
 require 'rails_helper'
 require_relative '../factories/users'
 feature "user authentication" do
-# [ ] As a prospective user
+# [X] As a prospective user
 # I want to create an account
 # So that I can post items and review them
 #
@@ -22,40 +22,32 @@ feature "user authentication" do
 # I want to delete my account
 # So that my information is no longer retained by the app
 
-  describe "user creates an account" do
-    user = FactoryGirl.create(:user)
+  user1 = FactoryGirl.create(:user)
+  user2 = FactoryGirl.create(:user)
 
-    scenario "user enters valid data to create account" do
-      visit "/users/sign_up"
+  scenario "user enters valid data to create account" do
+    visit "/users/sign_up"
 
-      fill_in "Username", with: user.user_name
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
-      fill_in "Password confirmation", with: user.password
-      click_on "Sign Up"
+    fill_in "Username", with: user1.user_name
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    fill_in "Password confirmation", with: user1.password
 
-      expect(page).to have_content "Welcome! You have signed up successfully."
-    end
+    click_on "Sign Up"
 
-    scenario "user enters invalid data to create account" do
-      visit "/users/sign_up"
+    expect(page).to have_content "Welcome! You have signed up successfully."
+  end
 
-      fill_in "Username", with: user.user_name
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
-      fill_in "Password confirmation", with: "Ooga Booga"
-      click_on "Sign Up"
+  scenario "user enters invalid data to create account" do
+    visit "/users/sign_up"
 
-      expect(page).to_not have_content "Welcome! You have signed up successfully."
-      expect(page).to have_content "confirmation doesn't match Password"
-    end
-    #
-    # scenario "user enters invalid data to create account" do
-    # visit "/users/sign_up"
-    #
-    # click_on "Sign Up"
-    #
-    # expect(page).to_not have_content "Username can't be blank."
-    # end
+    fill_in "Username", with: user2.user_name
+    fill_in "Email", with: user2.email
+    fill_in "Password", with: user2.password
+    fill_in "Password confirmation", with: "Ooga Booga"
+    click_on "Sign Up"
+
+    expect(page).to_not have_content "Welcome! You have signed up successfully."
+    expect(page).to have_content "confirmation doesn't match Password"
   end
 end
