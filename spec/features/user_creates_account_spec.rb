@@ -23,7 +23,7 @@ feature "user authentication" do
 # So that my information is no longer retained by the app
 
   describe "user creates an account" do
-  user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
 
     scenario "user enters valid data to create account" do
       visit "/users/sign_up"
