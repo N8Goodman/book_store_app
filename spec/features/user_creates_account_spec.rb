@@ -5,15 +5,6 @@ feature "user authentication" do
 # I want to create an account
 # So that I can post items and review them
 #
-# [ ] As an unauthenticated user
-# I want to sign in
-# So that I can post items and review them
-#
-# [ ] As an authenticated user
-# I want to sign out
-# So that no one else can post items or reviews on my
-# behalf
-#
 # [ ] As an authenticated user
 # I want to update my information
 # So that I can keep my profile up to date
