@@ -56,6 +56,7 @@ class Bookstore < ActiveRecord::Base
     ["West Virginia", "WV"],
     ["Wyoming", "WY"]
   ]
+  has_many :reviews
 
   validates :name, presence: true
   validates :address, presence: true

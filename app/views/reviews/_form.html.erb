@@ -1,0 +1,48 @@
+<h4>Add Review:</h4>
+<br>
+<%= form_for [@bookstore, @review] do |f| %>
+  <div class="required_field">
+    <%= f.label :overall_rating, "Overall Rating" %>
+    <%= f.select(:overall_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :price_rating, "Price Rating" %>
+    <%= f.select(:price_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :variety_rating, "Variety Rating" %>
+    <%= f.select(:variety_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :customer_service_rating, "Customer Service Rating" %>
+    <%= f.select(:customer_service_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :beverage_rating, "Beverage Rating" %>
+    <%= f.select(:beverage_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :food_rating, "Food Rating" %>
+    <%= f.select(:food_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :atmosphere_rating, "Atmosphere Rating" %>
+    <%= f.select(:atmosphere_rating, options_for_select(@rating_collection)) %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :body, "Comments:" %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit "Add Review" %>
+  </div>
+
+<% end %>
