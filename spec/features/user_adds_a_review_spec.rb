@@ -23,13 +23,11 @@ feature "user sees a specific bookstore page" do
     click_link 'Bookends'
     fill_in "Comments:", with: "This place is awesome!"
 
-
     select '5', from: 'Overall Rating'
     select '5', from: 'Price Rating'
     select '5', from: 'Variety Rating'
     select '5', from: 'Customer Service Rating'
 
     click_button 'Add Review'
-    save_and_open_page
   end
 end
