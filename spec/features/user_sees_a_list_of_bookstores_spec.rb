@@ -31,7 +31,7 @@ feature "user sees a list of book stores" do
       food: true
     )
   end
-  
+
   scenario 'user visits home page to view list of book stores' do
     visit '/'
 
