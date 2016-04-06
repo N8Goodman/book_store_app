@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>BookStoreApp</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
+    <link href='https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=IM+Fell+French+Canon' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
 
-  <header>
-    <%= link_to "Home", root_path %>
-    <%= button_to "Sign Up", new_user_registration_path if !current_user %>
-    <%= button_to "Sign In", new_user_session_path  if !current_user %>
-    <%= button_to "Sign Out", destroy_user_session_path, method: :delete if current_user %>
-  </header>
-
   <body>
-    <div class="notices">
-      <% flash.each do |name, msg| %>
-        <% if msg.is_a?(String) %>
-          <%= content_tag :div, msg, :class => "flash_#{name}" %>
-        <% end %>
-      <% end %>
+
+    <div class="callout primary" id = 'topbar'>
+      <div class="row column">
+        <h1 class="cursive" style="display: inline-block;">Literalist</h1>
+        <div style="float:right;">
+
+           <% if !user_signed_in?%>
+             <%= link_to "Log In", new_user_session_path %>
+           <% else%>
+             <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+             <%= link_to "Update Profile", edit_user_registration_path %>
+           <% end %>
+         </div>
+      </div>
     </div>
+
     <%= yield %>
+
   </body>
 </html>

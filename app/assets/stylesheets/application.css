@@ -12,4 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+body {
+  background-color: #FFFFEE;
+}
+.body {
+  font-family: 'IM Fell French Canon', serif;
+  color: #D88A8A;
+  font-size: 1.6em;
+}
