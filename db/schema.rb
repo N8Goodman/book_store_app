@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160405172424) do
 
   # These are extensions that must be enabled in order to support this database
@@ -38,4 +39,16 @@ ActiveRecord::Schema.define(version: 20160405172424) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "bookstores", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.string  "address",     null: false
+    t.string  "city",        null: false
+    t.string  "state",       null: false
+    t.integer "zip_code",    null: false
+    t.string  "url"
+    t.string  "img_url"
+    t.string  "description"
+    t.boolean "beverage"
+    t.boolean "food"
+  end
 end
