@@ -30,16 +30,16 @@ class ReviewsController < ApplicationController
 
   private
 
-    def review_params
-      params.require(:review).permit(
-        :overall_rating,
-        :price_rating,
-        :variety_rating,
-        :customer_service_rating,
-        :beverage_rating,
-        :food_rating,
-        :atmosphere_rating,
-        :body
-      ).merge(bookstore: @bookstore, user: current_user)
-    end
+  def review_params
+    params.require(:review).permit(
+      :overall_rating,
+      :price_rating,
+      :variety_rating,
+      :customer_service_rating,
+      :beverage_rating,
+      :food_rating,
+      :atmosphere_rating,
+      :body
+    ).merge(bookstore: @bookstore, user: current_user)
+  end
 end
