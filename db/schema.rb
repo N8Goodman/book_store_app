@@ -47,4 +47,26 @@ ActiveRecord::Schema.define(version: 20160405184832) do
   add_index "reviews", ["bookstore_id"], name: "index_reviews_on_bookstore_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                                  null: false
+    t.string   "encrypted_password",                     null: false
+    t.string   "user_name",                              null: false
+    t.string   "avatar"
+    t.boolean  "malicious",              default: false
+    t.boolean  "admin",                  default: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
 end

@@ -1,15 +1,21 @@
 class ReviewsController < ApplicationController
   def create
     @bookstore = Bookstore.find(params[:bookstore_id])
+    @reviews = @bookstore.reviews
     @review = Review.new(review_params)
-    if @review.save
-      flash[:notice] = "Review successfully added!"
-      redirect_to bookstore_path(@bookstore)
+    if current_user
+      if @review.save
+        flash[:notice] = "Review successfully added!"
+        redirect_to bookstore_path(@bookstore)
+      else
+        flash[:error] = @review.errors.full_messages.join", "
+        @rating_collection = Review::RATINGS
+        render :'bookstores/show'
+      end
     else
-      flash[:error] = @review.errors.full_messages.join", "
-      @reviews = @bookstore.reviews
       @rating_collection = Review::RATINGS
-      render :'bookstore/show'
+      flash[:error] = "You must be signed in to add reviews!"
+      render :'bookstores/show'
     end
   end
 

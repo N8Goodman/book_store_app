@@ -11,19 +11,29 @@ class BookstoresController < ApplicationController
   end
 
   def new
-    @state_collection = Bookstore::STATES
-    @bookstore = Bookstore.new
+    if current_user
+      @state_collection = Bookstore::STATES
+      @bookstore = Bookstore.new
+    else
+      flash[:error] = "You must be signed in to add Bookstores!"
+      redirect_to new_user_registration_path
+    end
   end
 
   def create
-    @state_collection = Bookstore::STATES
-    @bookstore = Bookstore.new(bookstore_params)
-    if @bookstore.save
-      flash[:notice] = "Bookstore successfully added!"
-      redirect_to bookstore_path(@bookstore)
+    if current_user
+      @state_collection = Bookstore::STATES
+      @bookstore = Bookstore.new(bookstore_params)
+      if @bookstore.save
+        flash[:notice] = "Bookstore successfully added!"
+        redirect_to bookstore_path(@bookstore)
+      else
+        flash[:error] = @bookstore.errors.full_messages.join", "
+        render :new
+      end
     else
-      flash[:error] = @bookstore.errors.full_messages.join", "
-      render :new
+      flash[:error] = "You must be signed in to add Bookstores!"
+      redirect_to new_user_registration_path
     end
   end
 
@@ -37,7 +47,7 @@ class BookstoresController < ApplicationController
   end
 
   private
-  
+
     def bookstore_params
       params.require(:bookstore).permit(
         :name,

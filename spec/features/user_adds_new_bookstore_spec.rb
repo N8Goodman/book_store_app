@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 feature "user adds a new bookstore page" do
+  let!(:user1) {FactoryGirl.create(:user)}
   scenario 'user successfully adds a bookstore' do
     visit root_path
+
+    click_button "Sign In"
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Log in"
 
     click_link "Add New Bookstore"
 
@@ -18,6 +25,12 @@ feature "user adds a new bookstore page" do
 
   scenario 'user tries to submit a blank form' do
     visit root_path
+
+    click_button "Sign In"
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Log in"
 
     click_link "Add New Bookstore"
 
@@ -36,6 +49,12 @@ feature "user adds a new bookstore page" do
   scenario 'user tries to submit an incomplete form' do
     visit root_path
 
+    click_button "Sign In"
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Log in"
+
     click_link "Add New Bookstore"
 
     fill_in "Name", with: "Booky"
@@ -50,6 +69,12 @@ feature "user adds a new bookstore page" do
   scenario 'user tries to submit an invalid zip' do
     visit root_path
 
+    click_button "Sign In"
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Log in"
+
     click_link "Add New Bookstore"
 
     fill_in "Name", with: "Booky"
@@ -60,5 +85,16 @@ feature "user adds a new bookstore page" do
     click_button "Add Bookstore"
 
     expect(page).to have_content "Zip code is the wrong length"
+  end
+
+  scenario 'user is not signed in and tries to add a bookstore' do
+    visit root_path
+
+    click_link "Add New Bookstore"
+
+    expect(page).to have_content "You must be signed in"
+    expect(page).to have_content "Email"
+    expect(page).to have_content "Password"
+    expect(page).to have_content "Password confirmation"
   end
 end
