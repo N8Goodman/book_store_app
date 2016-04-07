@@ -1,11 +1,21 @@
 FactoryGirl.define do
 
+  sequence :address do |n|
+    "#{n} Main Street"
+  end
+  sequence :name do |n|
+    "Book Store #{n}"
+  end
+
   factory :bookstore do
-    name "Literati"
-    address "23 Somewhere Avenue"
-    city "Anytown"
-    state "MA"
-    zip_code "02111"
-    association :user, factory: :user
+    name
+    address
+    city "Boston"
+    zip_code 12134
+    state "Massachusetts"
+    url "www.amazon.com"
+    img_url "http://i.imgur.com/b5PFYSl.png"
+    description "Really cool bookstore"
+    food true
   end
 end

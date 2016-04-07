@@ -9,6 +9,13 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <header>
+    <%= link_to "Home", root_path %>
+    <%= button_to "Sign Up", new_user_registration_path if !current_user %>
+    <%= button_to "Sign In", new_user_session_path  if !current_user %>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete if current_user %>
+  </header>
+
   <body>
     <% if !user_signed_in?%>
     <%= link_to "Log In", new_user_session_path %>

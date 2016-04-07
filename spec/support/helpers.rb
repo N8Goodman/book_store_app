@@ -10,6 +10,7 @@ module Helpers
   end
 
   def create_bookstore(user, bookstore)
+    sign_in(user)
     
   end
 end

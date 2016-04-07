@@ -1,4 +1,4 @@
-<h1 id="bookstore_title"><%= @bookstore.name.capitalize %> Reviews</h1>
+<h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
   <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
 
   <div id="bookstore_image">
@@ -12,7 +12,7 @@
   <div id="bookstore_description">
     Description: <%= @bookstore.description if @bookstore.description %>
   </div>
-  
+
   <% if @bookstore.food == true %>
     <div id="bookstore_food">
       This bookstore serves food!
@@ -24,5 +24,22 @@
       This bookstore serves beverages!
     </div>
   <% end %>
+
+  <h3>Reviews:</h3>
+
+    <ul id="review_list">
+      <% @reviews.each do |review| %>
+        <li>
+          <div class="review_body">
+            <%= review.body%>
+            <br>
+            Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <br>
+
+  <%= render '/reviews/form' %>
 
 <%= link_to "Home", bookstores_path %>

@@ -14,7 +14,7 @@ feature "user authentication" do
     fill_in "Password", with: "iheartbooks4eva"
     fill_in "Password confirmation", with: "iheartbooks4eva"
 
-    click_on "Sign Up"
+    click_on "Create Account"
 
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
@@ -25,7 +25,7 @@ feature "user authentication" do
     fill_in "Username", with: "UserMcUser"
     fill_in "Password", with: "iheartbooks4eva"
     fill_in "Password confirmation", with: "Ooga Booga"
-    click_on "Sign Up"
+    click_on "Create Account"
 
     expect(page).to_not have_content "Welcome! You have signed up successfully."
     expect(page).to have_content "confirmation doesn't match Password"
