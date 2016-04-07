@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   private
 
   def already_downvoted?
-    Downvote.where(user: current_user).where(review: review).first
+    Downvote.where(user: current_user).where(review: review).first.present
   end
 
   def existing_downvote
@@ -10,7 +10,7 @@ class VotesController < ApplicationController
   end
 
   def already_upvoted?
-    Upvote.where(user: current_user).where(review: review).first
+    Upvote.where(user: current_user).where(review: review).first.present
   end
 
   def existing_upvote
