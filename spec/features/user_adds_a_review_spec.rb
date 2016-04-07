@@ -7,11 +7,7 @@ feature "user adds review" do
 
   scenario 'user successfully adds a review' do
     visit root_path
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link bookstore1.name
     fill_in "Comments:", with: "This place is awesome!"
