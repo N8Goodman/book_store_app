@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   sequence :address do |n|
     "#{n} Main Street"
   end

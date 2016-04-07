@@ -21,15 +21,15 @@
         <div style="float:right;">
 
            <% if !user_signed_in?%>
-             <%= button_to "Sign In", new_user_session_path %>
+             <%= link_to "Sign In", new_user_session_path %>
            <% else%>
-             <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-             <%= button_to "Update Profile", edit_user_registration_path %>
+             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+             <%= link_to "Update Profile", edit_user_registration_path %>
            <% end %>
          </div>
       </div>
     </div>
-    
+
     <div class="notices">
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
