@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160407171055) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160407171055) do
     t.string  "description"
     t.boolean "beverage"
     t.boolean "food"
+    t.integer "user_id",     null: false
   end
 
   add_index "bookstores", ["name", "address", "city"], name: "index_bookstores_on_name_and_address_and_city", unique: true, using: :btree
@@ -86,4 +88,5 @@ ActiveRecord::Schema.define(version: 20160407171055) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bookstores", "users"
 end

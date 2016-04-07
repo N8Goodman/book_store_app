@@ -41,5 +41,4 @@ class UpvotesController < ApplicationController
     review.count = sum
     review.save
   end
-
 end
