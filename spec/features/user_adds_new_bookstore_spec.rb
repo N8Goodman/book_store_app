@@ -7,11 +7,7 @@ feature "user adds a new bookstore page" do
   scenario 'user successfully adds a bookstore' do
     visit root_path
 
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link "Add New Bookstore"
 
@@ -28,11 +24,7 @@ feature "user adds a new bookstore page" do
   scenario 'user tries to submit a blank form' do
     visit root_path
 
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link "Add New Bookstore"
 
@@ -51,11 +43,7 @@ feature "user adds a new bookstore page" do
   scenario 'user tries to submit an incomplete form' do
     visit root_path
 
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link "Add New Bookstore"
 
@@ -71,11 +59,7 @@ feature "user adds a new bookstore page" do
   scenario 'user tries to submit an invalid zip' do
     visit root_path
 
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link "Add New Bookstore"
 
