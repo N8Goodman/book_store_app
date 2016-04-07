@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :reviews
-  has_many :votes
+  has_many :upvotes
+  has_many :downvotes
   has_many :bookstores
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
