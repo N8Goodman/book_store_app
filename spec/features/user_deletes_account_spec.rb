@@ -1,5 +1,5 @@
 require 'rails_helper'
-require_relative '../factories/users'
+require_relative '../factories/factories'
 
   # [X] As an authenticated user
   # I want to delete my account

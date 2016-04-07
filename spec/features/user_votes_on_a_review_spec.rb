@@ -8,11 +8,7 @@ feature "user votes on a review" do
 
   scenario 'user successfully votes on a review' do
     visit root_path
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link bookstore1.name
 
@@ -23,11 +19,7 @@ feature "user votes on a review" do
 
   scenario 'user tries to add a second of the same vote on a review' do
     visit root_path
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link bookstore1.name
 
@@ -39,11 +31,7 @@ feature "user votes on a review" do
 
   scenario 'user changes their vote on a review' do
     visit root_path
-    click_button "Sign In"
-
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: user1.password
-    click_button "Log in"
+    sign_in(user1)
 
     click_link bookstore1.name
 
