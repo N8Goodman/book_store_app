@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407132340) do
+ActiveRecord::Schema.define(version: 20160407171055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20160407132340) do
 
   add_index "bookstores", ["name", "address", "city"], name: "index_bookstores_on_name_and_address_and_city", unique: true, using: :btree
 
+  create_table "downvotes", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "user_id"
+  end
+
+  add_index "downvotes", ["review_id"], name: "index_downvotes_on_review_id", using: :btree
+  add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
+
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id",                             null: false
     t.integer "bookstore_id",                        null: false
@@ -47,6 +55,14 @@ ActiveRecord::Schema.define(version: 20160407132340) do
 
   add_index "reviews", ["bookstore_id"], name: "index_reviews_on_bookstore_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "user_id"
+  end
+
+  add_index "upvotes", ["review_id"], name: "index_upvotes_on_review_id", using: :btree
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                  null: false
@@ -69,14 +85,5 @@ ActiveRecord::Schema.define(version: 20160407132340) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "votes", force: :cascade do |t|
-    t.integer "user_id",   null: false
-    t.integer "review_id", null: false
-    t.string  "vote",      null: false
-  end
-
-  add_index "votes", ["review_id"], name: "index_votes_on_review_id", using: :btree
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end
