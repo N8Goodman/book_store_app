@@ -12,6 +12,7 @@ feature "user deletes their account" do
   scenario "user deletes account successfully" do
     sign_in(user1)
     click_on("Update Profile")
+    save_and_open_page
 
     click_on "Cancel my account"
 
