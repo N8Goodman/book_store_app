@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../factories/users'
 
 # [X] As an authenticated user
 # I want to sign out

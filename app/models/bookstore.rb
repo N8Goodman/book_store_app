@@ -56,7 +56,7 @@ class Bookstore < ActiveRecord::Base
     ["West Virginia", "WV"],
     ["Wyoming", "WY"]
   ]
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
 
   validates :name, presence: true

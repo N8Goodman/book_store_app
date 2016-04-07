@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../factories/bookstores'
 
 feature "user sees a list of book stores" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
