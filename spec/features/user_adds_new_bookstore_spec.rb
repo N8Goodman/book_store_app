@@ -8,7 +8,6 @@ feature "user adds a new bookstore page" do
     sign_in(user1)
 
     click_link "Add New Bookstore"
-
     fill_in "Name", with: "Booky"
     fill_in "Address", with: "102 Main Street"
     fill_in "City", with: "Cambridge"
