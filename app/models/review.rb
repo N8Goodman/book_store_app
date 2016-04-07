@@ -20,8 +20,6 @@ class Review < ActiveRecord::Base
     presence: true, numericality: { integer: true }, inclusion: { in: 1..5 }
   validates :customer_service_rating,
     presence: true, numericality: { integer: true }, inclusion: { in: 1..5 }
-  validates :customer_service_rating,
-    numericality: { integer: true }, inclusion: { in: 1..5 }, allow_nil: true
   validates :beverage_rating,
     numericality: { integer: true }, inclusion: { in: 1..5 }, allow_nil: true
   validates :food_rating,

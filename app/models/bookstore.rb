@@ -57,10 +57,12 @@ class Bookstore < ActiveRecord::Base
     ["Wyoming", "WY"]
   ]
   has_many :reviews
+  belongs_to :user
 
   validates :name, presence: true
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :zip_code, numericality: true, length: { is: 5 }
+  validates :user, presence: true
 end
