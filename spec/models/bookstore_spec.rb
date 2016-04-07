@@ -17,6 +17,6 @@ RSpec.describe Bookstore, type: :model do
   it { should have_valid(:zip_code).when("01886", "90210") }
   it { should_not have_valid(:zip_code).when(nil, "", "Apple", "90876445", "345") }
 
-  it { should belong_to :user }
+  it { is_expected.to validate_presence_of :user }
   it { should have_many(:reviews).dependent(:destroy) }
 end
