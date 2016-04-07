@@ -1,4 +1,4 @@
-<h1>Litteralist Reviews:</h1>
+<h1 class="body">Book Stores Near You</h1>
 
 <ul id="bookstore_list">
   <% @bookstores.each do | bookstore |%>
@@ -8,5 +8,16 @@
   <% end %>
 </ul>
 
+<!-- eventually we probably want to iterate through local bookstore pics -->
+
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <div class="column">
+    <img class="thumbnail" src="http://placehold.it/550x550">
+    <h5>INSERT NAME HERE</h5>
+  </div>
+</div>
+<hr>
+<div class="row">
+<div class="medium-6 columns">
 
 <%= link_to "Add New Bookstore", new_bookstore_path %>
