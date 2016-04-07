@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "user votes on a review" do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
-  let!(:review1) { FactoryGirl.create(:review, bookstore: bookstore1) }
+  let!(:review1) { FactoryGirl.create(:review, bookstore: bookstore1, user: user1) }
 
   scenario 'user successfully votes on a review' do
     visit root_path
