@@ -66,7 +66,9 @@ class ReviewsController < ApplicationController
     @existing = Vote.where(user: current_user).where(review: @review)
     if !@existing.empty?
       if current_user && @existing.first.vote != 'down'
-        @existing.first.update(user: current_user, review: @review, vote: 'down')
+        @existing.first.update(
+        user: current_user, review: @review, vote: 'down'
+        )
         if @existing.first.save
           @review.count -= 2
           @review.save
