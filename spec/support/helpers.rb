@@ -8,9 +8,4 @@ module Helpers
 
     click_on("log-in-button")
   end
-
-  def create_bookstore(user, bookstore)
-    sign_in(user)
-
-  end
 end
