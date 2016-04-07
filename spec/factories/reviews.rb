@@ -4,8 +4,8 @@ FactoryGirl.define do
   end
 
   factory :review do
-    user_id 1
-    bookstore_id 1
+    user
+    bookstore
     overall_rating 5
     price_rating 5
     variety_rating 5

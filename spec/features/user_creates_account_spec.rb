@@ -1,5 +1,5 @@
 require 'rails_helper'
-require_relative '../factories/users'
+require_relative '../factories/factories'
 feature "user authentication" do
 # [X] As a prospective user
 # I want to create an account

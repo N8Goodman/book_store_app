@@ -9,6 +9,7 @@ class Review < ActiveRecord::Base
 
   belongs_to :bookstore
   belongs_to :user
+  has_many :votes
 
   validates :bookstore, presence: true
   validates :user, presence: true

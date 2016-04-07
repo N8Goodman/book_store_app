@@ -31,9 +31,12 @@
       <% @reviews.each do |review| %>
         <li>
           <div class="review_body">
+            <%= review.count %>
             <%= review.body%>
             <br>
             Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
+              <%= button_to '+1', review_upvote_path(review), method: :post %>
+              <%= button_to '-1', review_downvote_path(review), method: :post %>
           </div>
         </li>
       <% end %>

@@ -1,4 +1,6 @@
 require 'rails_helper'
+require_relative '../factories/factories'
+
 
 feature "user adds a new bookstore page" do
   let!(:user1) { FactoryGirl.create(:user) }
