@@ -1,7 +1,8 @@
 require 'coveralls'
 Coveralls.wear!('rails')
+require 'factory_girl_rails'
+require 'support/factory_girl'
 
-require 'factory_girl'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|

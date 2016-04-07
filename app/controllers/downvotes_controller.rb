@@ -4,7 +4,7 @@ class DownvotesController < VotesController
       if already_downvoted?
         flash[:error] = "You have already voted!"
       elsif already_upvoted?
-        (already_upvoted?).destroy!
+        existing_upvote.destroy!
         if downvote.save
           flash[:notice] = "Vote Changed!"
         else

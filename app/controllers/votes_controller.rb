@@ -5,7 +5,15 @@ class VotesController < ApplicationController
     Downvote.where(user: current_user).where(review: review).first
   end
 
+  def existing_downvote
+    Downvote.where(user: current_user).where(review: review).first
+  end
+
   def already_upvoted?
+    Upvote.where(user: current_user).where(review: review).first
+  end
+
+  def existing_upvote
     Upvote.where(user: current_user).where(review: review).first
   end
 
@@ -22,7 +30,7 @@ class VotesController < ApplicationController
   end
 
   def bookstore
-    (review).bookstore
+    review.bookstore
   end
 
   def count_votes(review)

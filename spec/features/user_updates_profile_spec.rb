@@ -1,5 +1,5 @@
 require 'rails_helper'
-require_relative '../factories/factories'
+
 feature "user updates their profile" do
 
 # [ X] As an unauthenticated user

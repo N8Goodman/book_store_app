@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../factories/factories'
 
 # [X] As a prospective user
 # I want to create an account

@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../factories/factories'
 
 feature "user votes on a review" do
   let!(:user1) { FactoryGirl.create(:user) }
