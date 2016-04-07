@@ -38,7 +38,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara-rails'
   gem 'launchy'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda'
 end

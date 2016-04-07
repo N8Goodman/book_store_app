@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :reviews
+  has_many :upvotes
+  has_many :downvotes
+  has_many :bookstores
   has_many :reviews, dependent: :destroy
   has_many :bookstores, dependent: :destroy
   # Include default devise modules. Others available are:

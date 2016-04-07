@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160407175938) do
 
   # These are extensions that must be enabled in order to support this database
@@ -32,21 +33,38 @@ ActiveRecord::Schema.define(version: 20160407175938) do
 
   add_index "bookstores", ["name", "address", "city"], name: "index_bookstores_on_name_and_address_and_city", unique: true, using: :btree
 
+  create_table "downvotes", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "user_id"
+  end
+
+  add_index "downvotes", ["review_id"], name: "index_downvotes_on_review_id", using: :btree
+  add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
+
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id",                 null: false
-    t.integer "bookstore_id",            null: false
-    t.integer "overall_rating",          null: false
-    t.integer "price_rating",            null: false
-    t.integer "variety_rating",          null: false
-    t.integer "customer_service_rating", null: false
+    t.integer "user_id",                             null: false
+    t.integer "bookstore_id",                        null: false
+    t.integer "overall_rating",                      null: false
+    t.integer "price_rating",                        null: false
+    t.integer "variety_rating",                      null: false
+    t.integer "customer_service_rating",             null: false
     t.integer "beverage_rating"
     t.integer "food_rating"
     t.integer "atmosphere_rating"
     t.text    "body"
+    t.integer "count",                   default: 0, null: false
   end
 
   add_index "reviews", ["bookstore_id"], name: "index_reviews_on_bookstore_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "user_id"
+  end
+
+  add_index "upvotes", ["review_id"], name: "index_upvotes_on_review_id", using: :btree
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                  null: false
