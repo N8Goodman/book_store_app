@@ -2,5 +2,6 @@
 #topbar {
   font-family: 'Dawning of a New Day', cursive;
   color: #D88A8A;
-  font-size: 1.6em;
+  font-size: 2em;
+  line-height: 50pt;
 }
