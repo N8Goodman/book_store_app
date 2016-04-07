@@ -17,5 +17,6 @@ FactoryGirl.define do
     img_url "http://i.imgur.com/b5PFYSl.png"
     description "Really cool bookstore"
     food true
+    association :user, factory: :user
   end
 end

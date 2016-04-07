@@ -60,6 +60,6 @@ class BookstoresController < ApplicationController
         :img_url,
         :beverage,
         :food
-      )
+      ).merge(user: current_user)
     end
 end
