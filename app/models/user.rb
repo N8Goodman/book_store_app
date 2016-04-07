@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :reviews
-  has_many :bookstores
+  has_many :reviews, dependent: :destroy
+  has_many :bookstores, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,5 +9,4 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: /\w+@\w+\.\w+/ }
   validates :encrypted_password, presence: true, length: { minimum: 8 }
   validates :user_name, presence: true, length: { in: 3..20, message: "User name must be between 3 and 20 characters." }
-  validates :encrypted_password, presence: true, length: { minimum: 8 }
 end
