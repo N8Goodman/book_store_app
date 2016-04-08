@@ -38,6 +38,7 @@ feature "user votes on a review" do
     click_button "-1"
 
     expect(page).to have_content "-1 #{review1.body}"
+    expect(page).to_not have_content "+1 #{review1.body}"
   end
 
   scenario 'user tries to vote without being signed in' do
