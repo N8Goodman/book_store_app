@@ -65,4 +65,12 @@ class Bookstore < ActiveRecord::Base
   validates :state, presence: true
   validates :zip_code, numericality: true, length: { is: 5 }
   validates :user, presence: true
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      Bookstore.all
+    end
+  end
 end
