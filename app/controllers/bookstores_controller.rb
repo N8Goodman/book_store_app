@@ -1,6 +1,6 @@
 class BookstoresController < ApplicationController
   def index
-    @bookstores = Bookstore.all
+    @bookstores = Bookstore.search(params[:search])
   end
 
   def show

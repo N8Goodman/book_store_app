@@ -5,3 +5,9 @@
   font-size: 2em;
   line-height: 50pt;
 }
+
+.search_bar{
+  display: inline;
+  float: right;
+  font-size: 0.5em;
+}
