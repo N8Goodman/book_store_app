@@ -44,6 +44,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do
