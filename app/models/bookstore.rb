@@ -68,9 +68,17 @@ class Bookstore < ActiveRecord::Base
   validates :name, uniqueness: { scope: [:address, :city],
     message: "already exists for this address" }
 
-    def tweet
-      twitter_client.update("#{name}, #{city}, #{state} was just added! Check it out at: https://www.literalist.herokuapp.com/bookstores")
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      Bookstore.all
     end
+  end
+
+  def tweet
+    twitter_client.update("#{name}, #{city}, #{state} was just added! Check it out at: https://www.literalist.herokuapp.com/bookstores")
+  end
 
   private
 
