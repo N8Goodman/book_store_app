@@ -21,8 +21,8 @@ RSpec.describe Bookstore, type: :model do
   it { is_expected.to have_many(:reviews).dependent(:destroy) }
 
   describe "#tweet" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:bookstore) { FactoryGirl.create(:bookstore) }
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:bookstore) { FactoryGirl.create(:bookstore, name: "Bookstore Awesome", city: "Boston", state: "Massachusetts") }
 
      it "creates a tweet" do
        VCR.use_cassette 'model/bookstore' do
