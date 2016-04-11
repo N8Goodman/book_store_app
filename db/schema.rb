@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407175938) do
+ActiveRecord::Schema.define(version: 20160411143418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160407175938) do
     t.string  "zip_code",    null: false
   end
 
-  add_index "bookstores", ["name", "address", "city"], name: "index_bookstores_on_name_and_address_and_city", unique: true, using: :btree
+  add_index "bookstores", ["name", "address", "city", "state"], name: "by_name_and_full_address", unique: true, using: :btree
 
   create_table "downvotes", force: :cascade do |t|
     t.integer "review_id"
