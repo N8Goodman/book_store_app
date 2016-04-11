@@ -3,9 +3,14 @@ FactoryGirl.define do
     "bee#{n}@example.com"
   end
 
+  sequence :user_name do |n|
+    "bookbee#{n}"
+  end
+
   factory :user do
-    user_name "bookbee1"
+    user_name
     email
     password "buzzbuzzbuzzzzzzz"
+    admin "false"
   end
 end
