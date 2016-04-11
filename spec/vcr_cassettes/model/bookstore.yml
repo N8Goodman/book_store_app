@@ -1,0 +1,154 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=Book+Store+13%2C+Boston%2C+Massachusetts+was+just+added%21+Check+it+out+at%3A+https%3A%2F%2Fwww.literalist.herokuapp.com%2Fbookstores
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Authorization:
+      - OAuth oauth_consumer_key="<YOUR_CONSUMER_KEY>", oauth_nonce="39214052e5dfd1c73d36358472f34f77",
+        oauth_signature="O65dj9Wwc9CwtWkbAE1LCVKoaAY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1460332033", oauth_token="<YOUR_ACCESS_TOKEN>", oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '85'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 10 Apr 2016 23:47:10 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sun, 10 Apr 2016 23:47:10 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A146033203054886715; Domain=.twitter.com; Path=/; Expires=Tue,
+        10-Apr-2018 23:47:10 UTC
+      - lang=en; Path=/
+      Status:
+      - 403 Forbidden
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 7df6759acf15a295fae680e16c3c0e9b
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '18'
+      X-Transaction:
+      - 071dc45e30e648cb
+      X-Tsa-Request-Body-Time:
+      - '0'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"code":187,"message":"Status is a duplicate."}]}'
+    http_version: 
+  recorded_at: Sun, 10 Apr 2016 23:47:13 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Authorization:
+      - OAuth oauth_consumer_key="<YOUR_CONSUMER_KEY>", oauth_nonce="be79b3eefe58b55f028b612b41fb7a03",
+        oauth_signature="hr7N6jufVRyWx5UEG3tbJlO%2B3yU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1460332033", oauth_token="<YOUR_ACCESS_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '867'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 10 Apr 2016 23:47:10 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sun, 10 Apr 2016 23:47:10 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A146033203082319299; Domain=.twitter.com; Path=/; Expires=Tue,
+        10-Apr-2018 23:47:10 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 2f47897a146a98e0afe8cefa51cccd65
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '178'
+      X-Rate-Limit-Reset:
+      - '1460332667'
+      X-Response-Time:
+      - '25'
+      X-Transaction:
+      - 7f9f5fda17745cb0
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"created_at":"Sun Apr 10 23:38:42 +0000 2016","id":719308655796072449,"id_str":"719308655796072449","text":"Book
+        Store 13, Boston, Massachusetts was just added! Check it out at: https:\/\/t.co\/vZD6dtYQYu","entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[{"url":"https:\/\/t.co\/vZD6dtYQYu","expanded_url":"https:\/\/www.literalist.herokuapp.com\/bookstores","display_url":"literalist.herokuapp.com\/bookstores","indices":[70,93]}]},"truncated":false,"source":"\u003ca
+        href=\"https:\/\/literalist.herokuapp.com\/bookstores\" rel=\"nofollow\"\u003eLiteralist\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":718518529524428801,"id_str":"718518529524428801","name":"Literalist","screen_name":"literalist_app","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":0,"listed_count":0,"created_at":"Fri
+        Apr 08 19:19:01 +0000 2016","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":4,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"F5F8FA","profile_background_image_url":null,"profile_background_image_url_https":null,"profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_0_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_0_normal.png","profile_link_color":"2B7BB9","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"}]'
+    http_version: 
+  recorded_at: Sun, 10 Apr 2016 23:47:13 GMT
+recorded_with: VCR 3.0.1

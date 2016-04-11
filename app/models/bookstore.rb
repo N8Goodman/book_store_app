@@ -65,4 +65,22 @@ class Bookstore < ActiveRecord::Base
   validates :state, presence: true
   validates :zip_code, numericality: true, length: { is: 5 }
   validates :user, presence: true
+  validates :name, uniqueness: { scope: [:address, :city],
+    message: "already exists for this address" }
+
+    def tweet
+      twitter_client.update("#{name}, #{city}, #{state} was just added! Check it out at: https://www.literalist.herokuapp.com/bookstores")
+    end
+
+  private
+
+  def twitter_client
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV["YOUR_CONSUMER_KEY"]
+      config.consumer_secret = ENV["YOUR_CONSUMER_SECRET"]
+      config.access_token = ENV["YOUR_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["YOUR_ACCESS_SECRET"]
+    end
+    client
+  end
 end

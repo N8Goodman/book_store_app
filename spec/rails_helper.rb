@@ -15,3 +15,12 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Helpers
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/vcr_cassettes'
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.default_cassette_options = { record: :new_episodes }
+  config.filter_sensitive_data('<YOUR_CONSUMER_KEY>') { ENV['YOUR_CONSUMER_KEY'] }
+  config.filter_sensitive_data('<YOUR_ACCESS_TOKEN>') { ENV['YOUR_ACCESS_TOKEN'] }
+end
