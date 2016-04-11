@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160411180001) do
     t.string  "zip_code",    null: false
   end
 
-  add_index "bookstores", ["name", "address", "city"], name: "index_bookstores_on_name_and_address_and_city", unique: true, using: :btree
+  add_index "bookstores", ["name", "address", "city", "state"], name: "by_name_and_full_address", unique: true, using: :btree
 
   create_table "downvotes", force: :cascade do |t|
     t.integer "review_id"
