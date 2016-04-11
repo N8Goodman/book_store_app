@@ -1,6 +1,5 @@
 class BookstoresController < ApplicationController
   def index
-    @bookstores = Bookstore.all.page params[:page]
     @bookstores = Kaminari.paginate_array(Bookstore.search(params[:search])).page(params[:page])
   end
 
