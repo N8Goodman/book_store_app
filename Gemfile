@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 gem 'rspec'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -28,11 +29,10 @@ gem 'foundation-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'json', '1.8.3'
-
 gem 'devise', '4.0.0.rc2'
-
 gem 'twitter'
 gem 'dotenv-rails'
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

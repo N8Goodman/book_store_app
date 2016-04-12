@@ -66,13 +66,13 @@ class Bookstore < ActiveRecord::Base
   validates :zip_code, numericality: true, length: { is: 5 }
   validates :user, presence: true
   validates :name, uniqueness: {
-     scope: [:address, :city],
-     message: "already exists for this address"
+    scope: [:address, :city, :state],
+    message: "already exists for this address"
   }
 
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('name iLIKE ?', "%#{search}%")
     else
       Bookstore.all
     end
