@@ -21,7 +21,7 @@ RSpec.describe TwitterClient, type: :model do
         response = twitter_client.post_tweet(message)
         expect(response).to_not eq nil
         expect(response).to be_a(Twitter::Tweet)
-        expect(response.text).to include(message)
+        expect(response.text).to include("was just added! Check it out at")
       end
     end
 
