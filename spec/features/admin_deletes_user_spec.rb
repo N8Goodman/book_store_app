@@ -25,4 +25,13 @@ feature "Admin deletes user" do
     expect(page).to have_content user3.user_name
     expect(page).to have_content "User deleted successfully."
   end
+
+  scenario "non-admin accesses admin users index page unsucessfully" do
+    sign_in(user2)
+    visit admin_users_path
+
+    expect(page).to_not have_link("delete#{user2.id}")
+    expect(page).to have_content("Access denied!")
+    expect(page.current_path).to eq root_path
+  end
 end

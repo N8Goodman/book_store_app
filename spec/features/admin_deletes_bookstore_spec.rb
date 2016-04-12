@@ -24,4 +24,13 @@ feature "admin deletes bookstore" do
     expect(page).to have_content bookstore2.name
     expect(page).to have_content "Bookstore deleted successfully."
   end
+
+  scenario "non-admin accesses admin bookstore index page unsucessfully" do
+    sign_in(user2)
+    visit admin_bookstores_path
+
+    expect(page).to_not have_link("delete#{bookstore1.id}")
+    expect(page).to have_content("Access denied!")
+    expect(page.current_path).to eq root_path
+  end
 end

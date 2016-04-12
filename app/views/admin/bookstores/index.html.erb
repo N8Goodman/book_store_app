@@ -5,18 +5,14 @@
       <tr>
         <th>Bookstore</th>
         <th>Adress</th>
-        <th>City</th>
-        <th>State</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       <% @bookstores.each do |store| %>
         <tr>
-          <td><%= store.name %></td>
-          <td><%= store.address %></td>
-          <td><%= store.city %></td>
-          <td><%= store.state%></td>
+          <td><%= link_to store.name, edit_admin_bookstore_path("#{store.id}")  %></td>
+          <td><%= store.address %>, <%= store.city %>, <%= store.state%></td>
           <td><%= link_to "Delete", "/admin/bookstores/#{store.id}", id: "delete#{store.id}", method: :delete %></td>
         </tr>
       <% end %>

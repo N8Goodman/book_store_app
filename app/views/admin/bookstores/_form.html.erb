@@ -1,4 +1,4 @@
-<%= form_for @bookstore do |f| %>
+<%= form_for @bookstore, url: admin_bookstore_path(@bookstore) do |f| %>
   <div class="required_field">
     <%= f.label :name %>
     <%= f.text_field :name %>

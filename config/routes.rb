@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :update, :destroy]
-    resources :bookstores, only: [:index, :destroy]
+    resources :bookstores, only: [:index, :edit, :update, :destroy]
+    resources :reviews, only: [:destroy]
   end
 end

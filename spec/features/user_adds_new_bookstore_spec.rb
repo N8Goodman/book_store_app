@@ -13,7 +13,7 @@ feature "user adds a new bookstore page" do
     fill_in "City", with: "Cambridge"
     select "Massachusetts", from: "State"
     fill_in "Zip Code", with: "99999"
-    click_button "Add Bookstore"
+    click_button "Submit Bookstore"
 
     expect(page).to have_content "Booky Reviews"
   end
@@ -25,7 +25,7 @@ feature "user adds a new bookstore page" do
 
     click_link "Add New Bookstore"
 
-    click_button "Add Bookstore"
+    click_button "Submit Bookstore"
 
     expect(page).to have_content "
     Name can't be blank,
@@ -48,7 +48,7 @@ feature "user adds a new bookstore page" do
     fill_in "City", with: "Cambridge"
     select "Massachusetts", from: "State"
     fill_in "Zip Code", with: "99999"
-    click_button "Add Bookstore"
+    click_button "Submit Bookstore"
 
     expect(page).to have_content "Address can't be blank"
   end
@@ -65,7 +65,7 @@ feature "user adds a new bookstore page" do
     fill_in "City", with: "Cambridge"
     select "Massachusetts", from: "State"
     fill_in "Zip Code", with: "9999"
-    click_button "Add Bookstore"
+    click_button "Submit Bookstore"
 
     expect(page).to have_content "Zip code is the wrong length"
   end
