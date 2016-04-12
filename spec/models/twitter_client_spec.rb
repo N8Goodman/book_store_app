@@ -13,8 +13,8 @@ RSpec.describe TwitterClient, type: :model do
 
     let(:message) do
       "#{bookstore.name}, #{bookstore.city}, #{bookstore.state} " +
-      "was added! Check it out at: " +
-      "literalist.herokuapp.com/bookstores/#{bookstore.id}"
+        "was added! Check it out at: " +
+        "literalist.herokuapp.com/bookstores/#{bookstore.id}"
     end
 
    it "posts a tweet" do
