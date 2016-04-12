@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
+gem 'fog'
 gem 'rspec'
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 gem 'pg', '~> 0.18'
@@ -20,6 +21,7 @@ gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'ma
 
 group :development, :test do
   gem 'byebug'
+  gem "dotenv-rails"
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara-rails'
