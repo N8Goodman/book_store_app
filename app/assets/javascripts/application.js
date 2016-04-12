@@ -28,8 +28,8 @@ $(function(){ $(document).foundation();
       success: function(response) {
         voteTotal.text(response);
       },
-      error: function(response){
-        alert("You must be signed in")
+      error: function(){
+        alert('You must be signed in');
       }
     });
   });
@@ -45,8 +45,8 @@ $(function(){ $(document).foundation();
       success: function(response) {
         voteTotal.text(response);
       },
-      error: function(response) {
-        alert("You must be signed in")
+      error: function() {
+        alert('You must be signed in');
       }
     });
   });
