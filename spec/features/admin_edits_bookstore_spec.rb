@@ -23,7 +23,7 @@ feature "admin edits bookstore" do
     fill_in "Address", with: "100 Awesome Street"
 
     click_on "Submit Bookstore"
-  save_and_open_page
+
     expect(page).to have_content bookstore1.name
     expect(page.current_path).to eq admin_bookstores_path
     expect(page).to have_content "Bookstore updated successfully!"
