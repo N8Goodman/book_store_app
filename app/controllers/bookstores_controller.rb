@@ -43,7 +43,8 @@ class BookstoresController < ApplicationController
     if current_user && current_user == @bookstore.user || current_user.admin
       @state_collection = Bookstore::STATES
     elsif current_user
-      flash[:error] = "You must be the bookstore creator to edit this information"
+      flash[:error] =
+        "You must be the bookstore creator to edit this information"
       redirect_to bookstore_path(@bookstore)
     else
       flash[:error] = "You must be signed in!"
@@ -63,7 +64,8 @@ class BookstoresController < ApplicationController
         render 'edit'
       end
     elsif current_user
-      flash[:error] = "You must be the bookstore creator to edit this information"
+      flash[:error] =
+        "You must be the bookstore creator to edit this information"
       render 'show'
     else
       flash[:error] = "You must be signed in!"
