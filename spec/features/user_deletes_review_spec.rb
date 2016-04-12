@@ -24,7 +24,7 @@ feature "user deletes a review from the website" do
 
     expect(page).to_not have_button "Delete Review"
   end
-  
+
   scenario "non-user tries to delete a review someone else created" do
     visit root_path
     click_link bookstore1.name

@@ -16,7 +16,7 @@ feature "Admin sees list of users" do
     expect(page).to have_content user2.user_name
     expect(page).to have_content user3.user_name
   end
-  
+
   scenario "non-admin user does not see list of users" do
     sign_in(user2)
     visit admin_users_path

@@ -20,7 +20,7 @@ feature "user deletes their account" do
 
     expect(page).to have_content "Bye! Your account has been successfully cancelled. We hope to see you again soon."
   end
-  
+
   scenario "user deletes account and all bookstores they created" do
     sign_in(user1)
 

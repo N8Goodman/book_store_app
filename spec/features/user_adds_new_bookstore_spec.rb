@@ -68,7 +68,7 @@ feature "user adds a new bookstore page" do
 
     expect(page).to have_content "Zip code is the wrong length"
   end
-  
+
   scenario 'user is not signed in and tries to add a bookstore' do
     visit root_path
 

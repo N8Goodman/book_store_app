@@ -12,7 +12,7 @@ feature "user signs in" do
 
     expect(page).to have_content "Signed in successfully."
   end
-  
+
   scenario "user enters invalid sign in information" do
     visit new_user_session_path
 
