@@ -16,13 +16,13 @@ feature "admin deletes review" do
     FactoryGirl.create(:review,
       user: user3,
       bookstore: bookstore1
-    )
+      )
   end
   let!(:review2) do
     FactoryGirl.create(:review,
       user: user2,
       bookstore: bookstore2
-    )
+      )
   end
 
   scenario 'admin deletes review created by another user' do
