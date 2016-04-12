@@ -30,7 +30,7 @@ feature "user updates their profile" do
     expect(page).to have_content "Your account has been updated successfully."
     expect(page).to have_css("img[src*='photo.png']")
   end
-  
+
   scenario "user updates profile unsuccessfully" do
     sign_in(user1)
     click_on("Update Profile")
