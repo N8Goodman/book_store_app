@@ -13,24 +13,25 @@ RSpec.describe TwitterClient, type: :model do
 
     let(:message) do
       "#{bookstore.name}, #{bookstore.city}, #{bookstore.state} " +
-      "was added! Check it out at: " + "literalist.herokuapp.com/bookstores/#{bookstore.id}"
+      "was added! Check it out at: " +
+      "literalist.herokuapp.com/bookstores/#{bookstore.id}"
     end
 
    it "posts a tweet" do
-     VCR.use_cassette 'model/twitter_client' do
-        response = twitter_client.post_tweet(message)
+    VCR.use_cassette 'model/twitter_client' do
+      response = twitter_client.post_tweet(message)
 
-        expect(response).to_not eq nil
-        expect(response).to be_a(Twitter::Tweet)
-        expect(response.text).to include("#{bookstore.name}, #{bookstore.city}, #{bookstore.state} was just added!")
-     end
+      expect(response).to_not eq nil
+      expect(response).to be_a(Twitter::Tweet)
+      expect(response.text).to include("#{bookstore.name}, #{bookstore.city}, #{bookstore.state} was just added!")
+    end
    end
 
    it "handles errors in posting tweet and returns nil" do
      VCR.use_cassette 'model/twitter_client_fail' do
-        response = twitter_client.post_tweet(message)
+      response = twitter_client.post_tweet(message)
 
-        expect(response).to eq nil
+      expect(response).to eq nil
      end
    end
   end
