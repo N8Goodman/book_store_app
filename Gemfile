@@ -45,6 +45,9 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'shoulda-matchers', require: false
+  gem 'teaspoon-jasmine'
+  gem 'selenium-webdriver'
+
 end
 
 group :development do
@@ -59,6 +62,8 @@ end
 group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'phantomjs'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
