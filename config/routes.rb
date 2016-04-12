@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'bookstores#index'
+  devise_for :users
 
   resources :bookstores do
     resources :reviews
@@ -7,11 +8,13 @@ Rails.application.routes.draw do
 
   resources :reviews do
     resources :comments
-    resources :upvotes, only: [:create]
-    resources :downvotes, only: [:create]
+    resources :votes do
+      collection do
+        post 'upvote'
+        post 'downvote'
+      end
+    end
   end
-
-  devise_for :users
 
   namespace :admin do
     resources :users
