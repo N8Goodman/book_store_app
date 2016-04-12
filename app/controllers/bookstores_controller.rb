@@ -1,6 +1,6 @@
 class BookstoresController < ApplicationController
   def index
-    @bookstores = Bookstore.search(params[:search])
+    @bookstores = Kaminari.paginate_array(Bookstore.search(params[:search])).page(params[:page])
   end
 
   def show
@@ -8,7 +8,7 @@ class BookstoresController < ApplicationController
     @vote_total = Vote.group(:review_id).sum(:vote)
     @rating_collection = Review::RATINGS
     @review = Review.new
-    @reviews = @bookstore.reviews
+    @reviews = @bookstore.reviews.order(:count).page params[:page]
   end
 
   def new
