@@ -14,7 +14,7 @@ FactoryGirl.define do
     zip_code 12134
     state "Massachusetts"
     url "www.amazon.com"
-    img_url "http://i.imgur.com/b5PFYSl.png"
+    img_url "/sample_image.png"
     description "Really cool bookstore"
     food true
     association :user, factory: :user
