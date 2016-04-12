@@ -13,9 +13,8 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true, length: { minimum: 8 }
   validates :user_name, presence: true, length: { in: 3..20, message: "User name must be between 3 and 20 characters." }
   validate :avatar_size_validation
-
   mount_uploader :avatar, ImageUploader
-  
+
   private
 
   def avatar_size_validation

@@ -84,7 +84,8 @@ class BookstoresController < ApplicationController
         redirect_to bookstore_path(@bookstore)
       end
     elsif current_user
-      flash[:error] = "You must be the bookstore creator to edit this information"
+      flash[:error] =
+        "You must be the bookstore creator to edit this information"
       redirect_to bookstores_path(@bookstore)
     else
       flash[:error] = "You must be signed in!"
