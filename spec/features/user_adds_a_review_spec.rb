@@ -63,7 +63,5 @@ feature "user adds review" do
 
     click_button 'Submit Review'
     expect(page).to have_content "You have already reviewed this bookstore!"
-
-
   end
 end
