@@ -12,8 +12,18 @@ feature "admin deletes review" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore, user: user2) }
   let!(:bookstore2) { FactoryGirl.create(:bookstore, user: user3) }
 
-  let!(:review1) { FactoryGirl.create(:review, user: user3, bookstore: bookstore1) }
-  let!(:review2) { FactoryGirl.create(:review, user: user2, bookstore: bookstore2) }
+  let!(:review1) do
+    FactoryGirl.create(:review,
+      user: user3,
+      bookstore: bookstore1
+    )
+  end
+  let!(:review2) do
+    FactoryGirl.create(:review,
+      user: user2,
+      bookstore: bookstore2
+    )
+  end
 
   scenario 'admin deletes review created by another user' do
     sign_in(user1)

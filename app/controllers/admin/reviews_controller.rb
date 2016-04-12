@@ -1,5 +1,4 @@
 class Admin::ReviewsController < AdminController
-
   def destroy
     @review = Review.find(params[:id])
     @bookstore = @review.bookstore

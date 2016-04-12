@@ -1,5 +1,4 @@
 class Admin::BookstoresController < AdminController
-
   def index
     @bookstores = Bookstore.all
   end
@@ -30,18 +29,18 @@ class Admin::BookstoresController < AdminController
 
   private
 
-    def bookstore_params
-      params.require(:bookstore).permit(
-        :name,
-        :address,
-        :city,
-        :state,
-        :zip_code,
-        :description,
-        :url,
-        :img_url,
-        :beverage,
-        :food
-      )
-    end
+  def bookstore_params
+    params.require(:bookstore).permit(
+    :name,
+    :address,
+    :city,
+    :state,
+    :zip_code,
+    :description,
+    :url,
+    :img_url,
+    :beverage,
+    :food
+    )
+  end
 end
