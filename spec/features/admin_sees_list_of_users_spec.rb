@@ -5,7 +5,6 @@ require 'rails_helper'
 # So I can review and delete them
 
 feature "Admin sees list of users" do
-
   let!(:user1) { FactoryGirl.create(:user, admin: true) }
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:user3) { FactoryGirl.create(:user) }

@@ -5,6 +5,7 @@ require 'rails_helper'
 # So that I can post items and review them
 
 feature "user authentication" do
+
   scenario "user enters valid data to create account" do
     visit new_user_registration_path
 
@@ -30,4 +31,4 @@ feature "user authentication" do
     expect(page).to have_content "confirmation doesn't match Password"
     expect(page).to have_content "Email can't be blank"
   end
-  end
+end
