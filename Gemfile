@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'json', '1.8.2'
+gem 'json', '1.8.3'
 
 gem 'devise', '4.0.0.rc2'
 
