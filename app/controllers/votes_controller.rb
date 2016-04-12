@@ -1,43 +1,36 @@
 class VotesController < ApplicationController
-  private
-
-  def already_downvoted?
-    Downvote.where(user: current_user).where(review: review).first.present?
-  end
-
-  def existing_downvote
-    Downvote.where(user: current_user).where(review: review).first
-  end
-
-  def already_upvoted?
-    Upvote.where(user: current_user).where(review: review).first.present?
-  end
-
-  def existing_upvote
-    Upvote.where(user: current_user).where(review: review).first
-  end
+  before_action :pre_vote
 
   def upvote
-    Upvote.new(user: current_user, review: review)
+    if @value.vote == 1
+      @value.vote -= 1
+    else
+      @value.vote = 1
+    end
+    respond_to do |format|
+      @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      format.json { render json: @vote_total[@review.id] }
+    end
   end
 
   def downvote
-    Downvote.new(user: current_user, review: review)
+    if @value.vote == -1
+      @value.vote += 1
+    else
+      @value.vote = -1
+    end
+    respond_to do |format|
+      @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      format.json { render json: @vote_total[@review.id] }
+    end
   end
 
-  def review
-    Review.find(params[:review_id])
-  end
+  protected
 
-  def bookstore
-    review.bookstore
-  end
-
-  def count_votes(review)
-    down = review.downvotes.length
-    up = review.upvotes.length
-    sum = up - down
-    review.count = sum
-    review.save
+  def pre_vote
+    @review = Review.find(params[:review_id])
+    @value = Vote.find_or_initialize_by(review: @review, user: current_user)
   end
 end
