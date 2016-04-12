@@ -55,7 +55,7 @@ class Bookstore < ActiveRecord::Base
     ["Wisconsin", "WI"],
     ["West Virginia", "WV"],
     ["Wyoming", "WY"]
-  ]
+  ].freeze
   has_many :reviews, dependent: :destroy
   belongs_to :user
 

@@ -38,12 +38,55 @@ class BookstoresController < ApplicationController
   end
 
   def edit
+    @bookstore = Bookstore.find(params[:id])
+    if current_user && current_user == @bookstore.user || current_user.admin
+      @state_collection = Bookstore::STATES
+    elsif current_user
+      flash[:error] = "You must be the bookstore creator to edit this information"
+      redirect_to bookstore_path(@bookstore)
+    else
+      flash[:error] = "You must be signed in!"
+      redirect_to bookstore_path(@bookstore)
+    end
   end
 
   def update
+    @bookstore = Bookstore.find(params[:id])
+    if current_user && current_user == @bookstore.user || current_user.admin
+      @bookstore.update(bookstore_params)
+      if @bookstore.save
+        flash[:notice] = "Bookstore updated!"
+        redirect_to bookstore_path(@bookstore)
+      else
+        flash[:error] = @bookstore.errors.full_messages.join", "
+        render 'edit'
+      end
+    elsif current_user
+      flash[:error] = "You must be the bookstore creator to edit this information"
+      render 'show'
+    else
+      flash[:error] = "You must be signed in!"
+      redirect_to bookstore_path(@bookstore)
+    end
   end
 
   def destroy
+    @bookstore = Bookstore.find(params[:id])
+    if current_user && current_user == @bookstore.user || current_user.admin
+      if @bookstore.destroy!
+        flash[:notification] = "Bookstore removed!"
+        redirect_to bookstores_path
+      else
+        @bookstore.errors.full_messages.join", "
+        redirect_to bookstore_path(@bookstore)
+      end
+    elsif current_user
+      flash[:error] = "You must be the bookstore creator to edit this information"
+      redirect_to bookstores_path(@bookstore)
+    else
+      flash[:error] = "You must be signed in!"
+      redirect_to bookstore_path(@bookstore)
+    end
   end
 
   private
