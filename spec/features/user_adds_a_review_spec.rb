@@ -1,9 +1,7 @@
 require 'rails_helper'
-
 feature "user adds review" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
   let!(:user1) { FactoryGirl.create(:user) }
-
   scenario 'user successfully adds a review' do
     visit root_path
     sign_in(user1)

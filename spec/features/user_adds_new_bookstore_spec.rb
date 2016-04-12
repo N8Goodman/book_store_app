@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 feature "user adds a new bookstore page" do
   let!(:user1) { FactoryGirl.create(:user) }
   scenario 'user successfully adds a bookstore' do

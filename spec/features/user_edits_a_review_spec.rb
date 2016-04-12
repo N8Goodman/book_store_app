@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 feature "user edits a review" do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }

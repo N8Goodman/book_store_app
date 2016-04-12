@@ -1,9 +1,7 @@
 require 'rails_helper'
-
 # [X] As a prospective user
 # I want to create an account
 # So that I can post items and review them
-
 feature "user authentication" do
   scenario "user enters valid data to create account" do
     visit new_user_registration_path

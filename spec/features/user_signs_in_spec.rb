@@ -1,9 +1,7 @@
 require 'rails_helper'
-
 # [ X] As an unauthenticated user
 # I want to sign in
 # So that I can post items and review them
-
 feature "user signs in" do
   let(:user1) { FactoryGirl.create(:user) }
   scenario "user enters valid sign in information" do

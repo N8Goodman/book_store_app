@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 feature "user sees a list of book stores" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
   let!(:bookstore2) { FactoryGirl.create(:bookstore) }

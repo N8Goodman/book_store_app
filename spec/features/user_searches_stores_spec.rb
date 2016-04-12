@@ -1,8 +1,6 @@
 require 'rails_helper'
-
 feature "User can filter index by name using Search Bar;" do
   let!(:user) { FactoryGirl.create(:user) }
-
   let!(:cookies) { Bookstore.create(
     name: "Cookies",
     address: "33 Harrison Ave.",

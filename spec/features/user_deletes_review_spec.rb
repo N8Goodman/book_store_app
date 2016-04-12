@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 feature "user deletes a review from the website" do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
