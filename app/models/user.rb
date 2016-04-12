@@ -18,7 +18,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
   private
-    def avatar_size_validation
-      errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
-    end
+
+  def avatar_size_validation
+    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
+  end
 end
