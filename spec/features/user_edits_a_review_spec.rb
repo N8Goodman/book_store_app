@@ -3,9 +3,9 @@ feature "user edits a review" do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
-  let!(:review1) {
+  let!(:review1) do
     FactoryGirl.create(:review, bookstore: bookstore1, user: user1)
-  }
+  end
   scenario "user successfully edits a review they have posted" do
     visit root_path
     sign_in(user1)
