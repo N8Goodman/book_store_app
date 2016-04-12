@@ -15,7 +15,7 @@ RSpec.describe TwitterClient, type: :model do
       "#{bookstore.name}, #{bookstore.city}, #{bookstore.state} was added! Check it out at: literalist.herokuapp.com/bookstores/#{bookstore.id}"
     end
 
-   it "posts a tweet" do
+    it "posts a tweet" do
      VCR.use_cassette 'model/twitter_client' do
        response = twitter_client.post_tweet(message)
        expect(response).to_not eq nil
