@@ -3,17 +3,17 @@ require 'rails_helper'
 RSpec.describe TwitterClient, type: :model do
   describe "#post_tweet(bookstore)" do
 
-    let!(:twitter_client) { TwitterClient.new }
-    let!(:bookstore) do FactoryGirl.create(
-      :bookstore,
-      name: "Bookstore Awesome",
-      city: "Boston",
-      state: "Massachusetts")
-    end
+  let!(:twitter_client) { TwitterClient.new }
+  let!(:bookstore) do FactoryGirl.create(
+    :bookstore,
+    name: "Bookstore Awesome",
+    city: "Boston",
+    state: "Massachusetts")
+  end
 
-    let(:message) do
-      "#{bookstore.name}, #{bookstore.city}, #{bookstore.state} was added! Check it out at: literalist.herokuapp.com/bookstores/#{bookstore.id}"
-    end
+  let(:message) do
+    "#{bookstore.name}, #{bookstore.city}, #{bookstore.state} was added! Check it out at: literalist.herokuapp.com/bookstores/#{bookstore.id}"
+  end
 
     it "posts a tweet" do
      VCR.use_cassette 'model/twitter_client' do
