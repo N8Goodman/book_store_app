@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 gem 'rspec'
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
@@ -15,6 +16,8 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'devise', '4.0.0.rc2'
 
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
@@ -24,6 +27,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do

@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: 9d66373b4f3123c3ebc7fc79ad15dbdc8c82ac0c
+  branch: master
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -276,6 +285,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json (= 1.8.2)
+  kaminari!
   launchy
   listen (~> 3.0.5)
   mini_magick (~> 4.3)
@@ -287,6 +297,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   shoulda
+  shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
