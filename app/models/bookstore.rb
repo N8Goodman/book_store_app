@@ -65,7 +65,10 @@ class Bookstore < ActiveRecord::Base
   validates :state, presence: true
   validates :zip_code, numericality: true, length: { is: 5 }
   validates :user, presence: true
-  validates :name, uniqueness: { scope: [:address, :city, :state], message: "already exists for this address" }
+  validates :name, uniqueness: {
+    scope: [:address, :city, :state],
+    message: "already exists for this address"
+  }
 
   def self.search(search)
     if search

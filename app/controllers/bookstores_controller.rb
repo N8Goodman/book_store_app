@@ -27,6 +27,13 @@ class BookstoresController < ApplicationController
       @bookstore = Bookstore.new(bookstore_params)
       if @bookstore.save
         flash[:notice] = "Bookstore successfully added!"
+
+        message = "#{@bookstore.name}, #{@bookstore.city}, "
+        message += "#{@bookstore.state} was just added! Check it out at: "
+        message += "literalist.herokuapp.com/bookstores/#{@bookstore.id}"
+
+        @twitter_client ||= TwitterClient.new
+        @twitter_client.post_tweet(message)
         redirect_to bookstore_path(@bookstore)
       else
         flash[:error] = @bookstore.errors.full_messages.join", "
@@ -95,18 +102,18 @@ class BookstoresController < ApplicationController
 
   private
 
-    def bookstore_params
-      params.require(:bookstore).permit(
-        :name,
-        :address,
-        :city,
-        :state,
-        :zip_code,
-        :description,
-        :url,
-        :img_url,
-        :beverage,
-        :food
-      ).merge(user: current_user)
-    end
+  def bookstore_params
+    params.require(:bookstore).permit(
+      :name,
+      :address,
+      :city,
+      :state,
+      :zip_code,
+      :description,
+      :url,
+      :img_url,
+      :beverage,
+      :food
+    ).merge(user: current_user)
+  end
 end

@@ -12,11 +12,14 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'foundation-rails'
-gem 'json', '1.8.2'
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+gem 'json', '1.8.3'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'devise', '4.0.0.rc2'
-
+gem 'twitter'
+gem 'dotenv-rails'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 
 group :development, :test do
@@ -45,6 +48,8 @@ end
 group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem "vcr"
+  gem "webmock"
   gem 'poltergeist'
   gem 'phantomjs'
 end
