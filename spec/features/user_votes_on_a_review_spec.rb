@@ -40,7 +40,7 @@ feature "user votes on a review", js: true do
     expect(page).to have_content "Vote Total: -1"
     expect(page).to_not have_content "Vote Total: 1"
   end
-  
+
   scenario 'user tries to vote without being signed in' do
     visit root_path
 
