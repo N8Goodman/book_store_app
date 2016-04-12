@@ -12,7 +12,7 @@ class Review < ActiveRecord::Base
   has_many :votes
 
   validates :bookstore, presence: true
-  validates :user, presence: true
+  validates :user, presence: true, uniqueness: { scope: [:bookstore], message: ": You have already reviewed this bookstore" }
   validates :overall_rating,
     presence: true, numericality: { integer: true }, inclusion: { in: 1..5 }
   validates :price_rating,

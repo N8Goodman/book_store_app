@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature "user adds review" do
+  ActionMailer::Base.deliveries.clear
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
   let!(:user1) { FactoryGirl.create(:user) }
 
@@ -21,6 +22,7 @@ feature "user adds review" do
     expect(page).to have_content "Overall: 5"
     expect(page).to have_content "Price: 3"
     expect(page).to have_content "Customer Service: 4"
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario 'user tries to add a review without signing in' do

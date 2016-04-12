@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     if current_user
       if @review.save
+        NotifierMailer.review_added_email(@review).deliver_later
+
         flash[:notice] = "Review successfully added!"
         redirect_to bookstore_path(@bookstore)
       else
