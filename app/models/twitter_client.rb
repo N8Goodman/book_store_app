@@ -11,9 +11,9 @@ class TwitterClient
   end
 
   def post_tweet(message)
-      client.update(message)
-    rescue => e
-      Rails.logger.error { "#{e.message} #{e.backtrace.join("\n")}" }
-      nil
+    client.update(message)
+  rescue => e
+    Rails.logger.error { "#{e.message} #{e.backtrace.join("\n")}" }
+    nil
   end
 end
