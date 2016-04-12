@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TwitterClient, type: :model do
   describe "#post_tweet(bookstore)" do
+    
     let!(:twitter_client) { TwitterClient.new }
     let!(:bookstore) do FactoryGirl.create(
       :bookstore,
