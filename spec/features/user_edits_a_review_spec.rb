@@ -6,7 +6,7 @@ feature "user edits a review" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
   let!(:review1) {
     FactoryGirl.create(:review, bookstore: bookstore1, user: user1)
-    }
+  }
 
   scenario "user successfully edits a review they have posted" do
     visit root_path

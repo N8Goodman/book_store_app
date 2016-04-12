@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validate :avatar_size_validation
 
   mount_uploader :avatar, ImageUploader
-
+  
   private
 
   def avatar_size_validation

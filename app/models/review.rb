@@ -28,5 +28,6 @@ class Review < ActiveRecord::Base
     numericality: { integer: true }, inclusion: { in: 1..5 }, allow_nil: true
   validates :atmosphere_rating,
     numericality: { integer: true }, inclusion: { in: 1..5 }, allow_nil: true
-  validates :user_id, uniqueness: { scope: :bookstore_id, message: ": You have already reviewed this bookstore!" }
+  validates :user_id,
+    uniqueness: { scope: :bookstore_id, message: ": You have already reviewed this bookstore!" }
 end

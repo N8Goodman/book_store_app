@@ -6,7 +6,7 @@ feature "user deletes a review from the website" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore, user: user1) }
   let!(:review1) {
     FactoryGirl.create(:review, bookstore: bookstore1, user: user1)
-    }
+  }
 
   scenario  "user successfully deletes a review they created" do
     visit root_path

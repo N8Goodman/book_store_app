@@ -49,7 +49,6 @@ class ReviewsController < ApplicationController
       flash[:error] = "You must be signed in!"
       redirect_to bookstore_path(@bookstore)
     end
-
   end
 
   def destroy
