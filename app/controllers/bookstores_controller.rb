@@ -28,8 +28,9 @@ class BookstoresController < ApplicationController
       if @bookstore.save
         flash[:notice] = "Bookstore successfully added!"
 
-        message = "#{@bookstore.name}, #{@bookstore.city}, " +
-        "#{@bookstore.state} was just added! Check it out at " + "literalist.herokuapp.com/bookstores/#{@bookstore.id}"
+        message = "#{@bookstore.name}, #{@bookstore.city}, "
+        message += "#{@bookstore.state} was just added! Check it out at: "
+        message += "literalist.herokuapp.com/bookstores/#{@bookstore.id}"
 
         @twitter_client ||= TwitterClient.new
         @twitter_client.post_tweet(message)
