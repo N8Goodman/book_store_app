@@ -6,6 +6,30 @@
 
 Ruby 2.3.0
 
+App Name: Liberalist
+
+Description: A review site that shows users a list of bookstores, along with the critiques and feedback of those who have been to these stores before in order to improve their experience.
+
+Authors: Nate Goodman, Ashley Hampson, William Mahoney, Ann Colvin, James Sanderson
+
+Link: https://literalist.herokuapp.com/
+
+Features:
+1.) Sign up for an account, add details and a photo
+2.) Add bookstores to be reviewed
+3.) Rate and review existing bookstores
+4.) Upvote or downvote reviews of other users
+5.) Search for bookstores
+6.) Receive emails when a bookstore added or owned is reviewed
+
+Technologies Used:
+1.) Ruby on Rails - Framework and Backend
+2.) Javascript and AJAX - Responsive Web Page
+3.) HTML, CSS, and SASS - Styling and Formatting
+4.) Devise - User Authentication
+5.) CarrierWave - Profile Picture
+6.) Kaminari - Pagination
+
 User Stories:
 
 1)
