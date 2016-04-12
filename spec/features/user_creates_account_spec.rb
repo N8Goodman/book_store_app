@@ -15,7 +15,6 @@ feature "user authentication" do
 
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
-
   scenario "user enters invalid data to create account" do
     visit new_user_registration_path
 
@@ -28,4 +27,4 @@ feature "user authentication" do
     expect(page).to have_content "confirmation doesn't match Password"
     expect(page).to have_content "Email can't be blank"
   end
-  end
+end

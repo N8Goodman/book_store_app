@@ -20,7 +20,6 @@ feature "user adds review" do
     expect(page).to have_content "Price: 3"
     expect(page).to have_content "Customer Service: 4"
   end
-
   scenario 'user tries to add a review without signing in' do
     visit root_path
 
@@ -37,7 +36,6 @@ feature "user adds review" do
     expect(page).to have_content "You must be signed in"
     expect(page).to have_content bookstore1.name
   end
-
   scenario 'user tries to review a bookstore twice' do
     visit root_path
     sign_in(user1)

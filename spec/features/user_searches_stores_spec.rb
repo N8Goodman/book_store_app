@@ -36,7 +36,6 @@ feature "User can filter index by name using Search Bar;" do
     expect(page).to have_content("Coffee")
     expect(page).to have_content("Cookies")
   end
-
   scenario "user enters nothing in search bar but searches" do
     visit bookstores_path
     click_on "Search"

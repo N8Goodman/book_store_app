@@ -11,7 +11,6 @@ feature "user deletes a bookstore from the website" do
 
     expect(page).to_not have_content bookstore1.name
   end
-
   scenario  "user tries to delete a bookstore someone else created" do
     visit root_path
     sign_in(user2)
@@ -19,7 +18,6 @@ feature "user deletes a bookstore from the website" do
 
     expect(page).to_not have_button "Delete Bookstore"
   end
-
   scenario  "non-user tries to delete a bookstore someone else created" do
     visit root_path
     click_link bookstore1.name

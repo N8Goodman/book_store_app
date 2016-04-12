@@ -16,7 +16,6 @@ feature "user adds a new bookstore page" do
 
     expect(page).to have_content "Booky Reviews"
   end
-
   scenario 'user tries to submit a blank form' do
     visit root_path
 
@@ -32,9 +31,7 @@ feature "user adds a new bookstore page" do
     expect(page).to have_content "Zip code is not a number"
     expect(page).to have_content
     "Zip code is the wrong length (should be 5 characters)"
-
   end
-
   scenario 'user tries to submit an incomplete form' do
     visit root_path
 
@@ -50,7 +47,6 @@ feature "user adds a new bookstore page" do
 
     expect(page).to have_content "Address can't be blank"
   end
-
   scenario 'user tries to submit an invalid zip' do
     visit root_path
 
@@ -67,7 +63,6 @@ feature "user adds a new bookstore page" do
 
     expect(page).to have_content "Zip code is the wrong length"
   end
-
   scenario 'user is not signed in and tries to add a bookstore' do
     visit root_path
 

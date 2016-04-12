@@ -26,7 +26,6 @@ feature "user edits a review" do
     expect(page).to have_content "Customer Service: 5"
 
   end
-
   scenario "user unsuccessfully edits a review they have posted" do
     visit root_path
     sign_in(user1)
@@ -41,7 +40,6 @@ feature "user edits a review" do
     expect(page).to have_content "Overall rating can't be blank"
 
   end
-
   scenario "user tries to edit another user's review" do
     visit root_path
     sign_in(user2)
@@ -50,7 +48,6 @@ feature "user edits a review" do
     expect(page).to_not have_content "Edit Review"
 
   end
-
   scenario "non-user tries to edit a user's review" do
     visit root_path
     click_link bookstore1.name

@@ -15,7 +15,6 @@ feature "user edits a bookstore" do
 
     expect(page).to have_content "Juno, AL"
   end
-
   scenario "user cannot edit different user's bookstore" do
     visit root_path
     sign_in(user2)
@@ -23,7 +22,6 @@ feature "user edits a bookstore" do
 
     expect(page).to_not have_button "Edit Bookstore"
   end
-
   scenario "non-user cannot edit a different user's bookstore" do
     visit root_path
     click_link bookstore1.name
