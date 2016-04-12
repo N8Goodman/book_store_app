@@ -21,8 +21,10 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.default_cassette_options = { record: :new_episodes }
-  config.filter_sensitive_data('<TWITTER_API_KEY>') {
-    ENV['TWITTER_API_KEY'] }
-  config.filter_sensitive_data('<TWITTER_ACCESS_TOKEN>') {
-    ENV['TWITTER_ACCESS_TOKEN'] }
+  config.filter_sensitive_data('<TWITTER_API_KEY>') do
+    ENV['TWITTER_API_KEY']
+  end
+  config.filter_sensitive_data('<TWITTER_ACCESS_TOKEN>') do
+    ENV['TWITTER_ACCESS_TOKEN']
+  end
 end
