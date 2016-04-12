@@ -5,9 +5,7 @@ require 'rails_helper'
 # So that I can post items and review them
 
 feature "user signs in" do
-
   let(:user1) { FactoryGirl.create(:user) }
-
   scenario "user enters valid sign in information" do
     sign_in(user1)
 

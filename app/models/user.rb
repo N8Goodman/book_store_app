@@ -18,6 +18,7 @@ class User < ApplicationRecord
   private
 
   def avatar_size_validation
-    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
+    errors[:avatar] <<
+      "should be less than 500KB" if avatar.size > 0.5.megabytes
   end
 end
