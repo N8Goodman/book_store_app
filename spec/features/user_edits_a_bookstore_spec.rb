@@ -1,8 +1,10 @@
 require 'rails_helper'
+
 feature "user edits a bookstore" do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:bookstore1) { FactoryGirl.create(:bookstore, user: user1) }
+
   scenario "user edits a bookstore they created" do
     visit root_path
     sign_in(user1)
@@ -15,6 +17,7 @@ feature "user edits a bookstore" do
 
     expect(page).to have_content "Juno, AL"
   end
+
   scenario "user cannot edit different user's bookstore" do
     visit root_path
     sign_in(user2)
@@ -22,6 +25,7 @@ feature "user edits a bookstore" do
 
     expect(page).to_not have_button "Edit Bookstore"
   end
+  
   scenario "non-user cannot edit a different user's bookstore" do
     visit root_path
     click_link bookstore1.name

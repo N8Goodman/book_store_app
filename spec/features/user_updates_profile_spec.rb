@@ -1,9 +1,12 @@
 require 'rails_helper'
+
 # [ X] As an unauthenticated user
 # I want to sign in
 # So that I can post items and review them
+
 feature "user updates their profile" do
   let!(:user1) { FactoryGirl.create(:user, email: "ann3@example.com") }
+
   scenario "user updates profile successfully" do
     sign_in(user1)
     click_on("Update Profile")
@@ -14,6 +17,7 @@ feature "user updates their profile" do
 
     expect(page).to have_content "Your account has been updated successfully."
   end
+
   scenario "user uploads a profile photo" do
     sign_in(user1)
     click_on("Update Profile")
@@ -26,6 +30,7 @@ feature "user updates their profile" do
     expect(page).to have_content "Your account has been updated successfully."
     expect(page).to have_css("img[src*='photo.png']")
   end
+  
   scenario "user updates profile unsuccessfully" do
     sign_in(user1)
     click_on("Update Profile")

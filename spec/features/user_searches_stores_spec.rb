@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 feature "User can filter index by name using Search Bar;" do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:cookies) do
@@ -19,8 +20,8 @@ feature "User can filter index by name using Search Bar;" do
       state: "ME",
       zip_code: "04101",
       user: user
-      )
-    end
+    )
+  end
   let!(:coffee) do
     Bookstore.create(
       name: "Coffee",
@@ -29,8 +30,9 @@ feature "User can filter index by name using Search Bar;" do
       state: "MA",
       zip_code: "02145",
       user: user
-      )
-    end
+    )
+  end
+
   scenario "user enters a string in search bar" do
     visit bookstores_path
 
@@ -42,6 +44,7 @@ feature "User can filter index by name using Search Bar;" do
     expect(page).to have_content("Coffee")
     expect(page).to have_content("Cookies")
   end
+
   scenario "user enters nothing in search bar but searches" do
     visit bookstores_path
     click_on "Search"

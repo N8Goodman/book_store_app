@@ -1,14 +1,18 @@
 require 'rails_helper'
+
 # [ X] As an unauthenticated user
 # I want to sign in
 # So that I can post items and review them
+
 feature "user signs in" do
   let(:user1) { FactoryGirl.create(:user) }
+
   scenario "user enters valid sign in information" do
     sign_in(user1)
 
     expect(page).to have_content "Signed in successfully."
   end
+  
   scenario "user enters invalid sign in information" do
     visit new_user_session_path
 
