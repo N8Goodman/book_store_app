@@ -22,9 +22,15 @@ class Admin::BookstoresController < AdminController
   end
 
   def destroy
-    Bookstore.find(params[:id]).destroy!
+    @bookstore = Bookstore.find(params[:id])
+    if @bookstore
+      @bookstore.destroy!
     flash[:notice] = "Bookstore deleted successfully."
     redirect_to admin_bookstores_path
+    else
+      flash[:notice] = "Failed!"
+    render :index
+    end
   end
 
   private

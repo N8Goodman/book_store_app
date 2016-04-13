@@ -5,15 +5,16 @@ require 'rails_helper'
 # So I can remove inappropriate or inaccurate content
 
 feature "admin edits bookstore" do
-  let!(:user1) { FactoryGirl.create(:user, admin: true) }
-  let!(:user2) { FactoryGirl.create(:user) }
-  let!(:user3) { FactoryGirl.create(:user) }
+  let!(:admin_user1) { FactoryGirl.create(:user, admin: true) }
+  let!(:non_admin_user2) { FactoryGirl.create(:user) }
+  let!(:non_admin_user3) { FactoryGirl.create(:user) }
 
-  let!(:bookstore1) { FactoryGirl.create(:bookstore, user: user2) }
-  let!(:bookstore2) { FactoryGirl.create(:bookstore, user: user3) }
+
+    let!(:bookstore1) { FactoryGirl.create(:bookstore, user: non_admin_user2) }
+    let!(:bookstore2) { FactoryGirl.create(:bookstore, user: non_admin_user3) }
 
   scenario 'admin edits bookstore created by another user' do
-    sign_in(user1)
+    sign_in(admin_user1)
     visit admin_bookstores_path
 
     expect(page).to_not have_content "100 Awesome Street"
