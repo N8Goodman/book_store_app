@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href='https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=IM+Fell+French+Canon' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Literalist" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -18,16 +21,19 @@
     <div class="callout primary" id = 'topbar'>
       <div class="row column">
 
-        <h1 class="cursive" style="display: inline-block;">Literalist</h1>
+        <h1 class="logo" style="display: inline-block;"><%= link_to "Literalist", bookstores_path %></h1>
 
-        <div style="float:right;">
-           <% if !user_signed_in?%>
-             <%= link_to "Sign In", new_user_session_path %>
-           <% else%>
-             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-             <%= link_to "Update Profile", edit_user_registration_path %>
-           <% end %>
-         </div>
+        <div class="logo2">
+          <div style="display: inline-block;">
+            <% if !user_signed_in?%>
+              <%= link_to "Sign In", new_user_session_path %>
+            <% else%>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              &nbsp;&nbsp;
+              <%= link_to "Update Profile", edit_user_registration_path %>
+            <% end %>
+          </div>
+        </div>
 
          <div class="search_bar">
            <%= form_tag(bookstores_path, method: 'get', id: "search_bar") do %>
@@ -45,7 +51,8 @@
         <% end %>
       <% end %>
     </div>
-    <%= yield %>
-
+    <div class="row small-11 small-centered columns">
+      <%= yield %>
+    </div
   </body>
 </html>

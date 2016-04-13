@@ -1,13 +1,22 @@
-.cursive,
+.logo,
 #topbar {
-  font-family: 'Dawning of a New Day', cursive;
-  color: #D88A8A;
+  background-color: #2D0936;
+  font-family: 'Fredericka the Great', cursive;
+  color: #32E8AB;
   font-size: 2em;
-  line-height: 50pt;
+  line-height: 30pt;
 }
 
-.search_bar{
-  display: inline;
+.logo2 {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.search_bar {
+  font-family: 'Didact Gothic', sans-serif;
+  display: inline-block;
   float: right;
   font-size: 0.5em;
+  position: relative;
+  bottom: 90px;
+  left: 10px;
 }
