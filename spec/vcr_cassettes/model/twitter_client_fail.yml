@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: status=Bookstore+Awesome%2C+Boston%2C+Massachusetts+was+just+added%21+Check+it+out+at+literalist.herokuapp.com%2Fbookstores%2F26
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Authorization:
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="cb6205dc49dab42c4d98572311103498",
+        oauth_signature="ceVDYJbGnF7iYgN7qKuZGjTWq5k%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1460422978", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Authorization Required
+    headers:
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 12 Apr 2016 01:02:59 GMT
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A146042297911227078; Domain=.twitter.com; Path=/; Expires=Thu,
+        12-Apr-2018 01:02:59 UTC
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Connection-Hash:
+      - d90e73bed2cae91e48e0c3207660b142
+      X-Response-Time:
+      - '7'
+      X-Tsa-Request-Body-Time:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"code":32,"message":"Could not authenticate you."}]}'
+    http_version:
+  recorded_at: Tue, 12 Apr 2016 01:02:59 GMT
+recorded_with: VCR 3.0.1

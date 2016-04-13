@@ -26,6 +26,10 @@
     </div>
   <% end %>
 
+  <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore) if current_user == @bookstore.user %>
+  <br>
+  <%= button_to "Delete Bookstore", @bookstore, method: :delete if current_user == @bookstore.user %>
+  <br>
   <h3>Reviews:</h3>
 
     <ul id="review_list">
@@ -36,6 +40,7 @@
             <br>
             <%= review.body%>
             <br>
+
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
               <div class="vote circle">
                 <div class="increment up">
@@ -51,7 +56,12 @@
                   </div>
                 </div>
               </div>
+
             </div>
+
+              <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review) if current_user == review.user %>
+              <%= button_to "Delete Review", review, method: :delete if current_user == review.user %>
+
           </div>
         </li>
       <% end %>

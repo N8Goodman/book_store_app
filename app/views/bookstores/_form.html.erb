@@ -16,7 +16,7 @@
 
   <div class="required_field">
     <%= f.label :state %>
-    <%= f.select(:state, options_for_select(@state_collection)) %>
+    <%= f.select(:state, options_for_select(@state_collection), { :include_blank=>true, :prompt =>  'State' }) %>
   </div>
 
   <div class="required_field">
@@ -50,7 +50,7 @@
   </div>
 
   <div>
-    <%= f.submit "Add Bookstore" %>
+    <%= f.submit "Submit Bookstore" %>
   </div>
 
 <% end %>

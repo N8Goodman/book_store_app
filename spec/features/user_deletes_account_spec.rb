@@ -5,7 +5,6 @@ require 'rails_helper'
   # So that my information is no longer retained by the app
 
 feature "user deletes their account" do
-
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user, user_name: "heyyythere") }
   let!(:bookstore1) { FactoryGirl.create(:bookstore, user: user1) }

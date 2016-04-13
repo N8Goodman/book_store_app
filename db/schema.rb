@@ -17,17 +17,19 @@ ActiveRecord::Schema.define(version: 20160411192403) do
   enable_extension "plpgsql"
 
   create_table "bookstores", force: :cascade do |t|
-    t.string  "name",        null: false
-    t.string  "address",     null: false
-    t.string  "city",        null: false
-    t.string  "state",       null: false
-    t.string  "url"
-    t.string  "img_url"
-    t.string  "description"
-    t.boolean "beverage"
-    t.boolean "food"
-    t.integer "user_id",     null: false
-    t.string  "zip_code",    null: false
+    t.string   "name",        null: false
+    t.string   "address",     null: false
+    t.string   "city",        null: false
+    t.string   "state",       null: false
+    t.string   "url"
+    t.string   "img_url"
+    t.string   "description"
+    t.boolean  "beverage"
+    t.boolean  "food"
+    t.integer  "user_id",     null: false
+    t.string   "zip_code",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "bookstores", ["name", "address", "city", "state"], name: "by_name_and_full_address", unique: true, using: :btree
@@ -41,20 +43,23 @@ ActiveRecord::Schema.define(version: 20160411192403) do
   add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id",                             null: false
-    t.integer "bookstore_id",                        null: false
-    t.integer "overall_rating",                      null: false
-    t.integer "price_rating",                        null: false
-    t.integer "variety_rating",                      null: false
-    t.integer "customer_service_rating",             null: false
-    t.integer "beverage_rating"
-    t.integer "food_rating"
-    t.integer "atmosphere_rating"
-    t.text    "body"
-    t.integer "count",                   default: 0, null: false
+    t.integer  "user_id",                             null: false
+    t.integer  "bookstore_id",                        null: false
+    t.integer  "overall_rating",                      null: false
+    t.integer  "price_rating",                        null: false
+    t.integer  "variety_rating",                      null: false
+    t.integer  "customer_service_rating",             null: false
+    t.integer  "beverage_rating"
+    t.integer  "food_rating"
+    t.integer  "atmosphere_rating"
+    t.text     "body"
+    t.integer  "count",                   default: 0, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "reviews", ["bookstore_id"], name: "index_reviews_on_bookstore_id", using: :btree
+  add_index "reviews", ["user_id", "bookstore_id"], name: "index_reviews_on_user_id_and_bookstore_id", unique: true, using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "upvotes", force: :cascade do |t|
