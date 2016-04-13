@@ -5,10 +5,10 @@ class BookstoresController < ApplicationController
 
   def show
     @bookstore = Bookstore.find(params[:id])
-    
     @rating_collection = Review::RATINGS
     @review = Review.new
     @reviews = @bookstore.reviews.order(:count).page params[:page]
+    @vote_total = Vote.group(:review_id).sum(:vote)
   end
 
   def new

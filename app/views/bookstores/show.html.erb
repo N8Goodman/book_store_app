@@ -39,13 +39,20 @@
             <br>
 
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
-              <div id="vote-div">
-                <%= link_to "+1", upvote_review_votes_path(review), method: :post, class: 'upvote' %>
+              <div id="vote-div<%= review.id %>">
+
+                  <%= link_to "+1", upvote_review_votes_path(review), class: "upvote", remote: true, method: :post %>
+
                 <br>
-                <%= link_to "-1", downvote_review_votes_path(review), method: :post, class: 'downvote' %>
+
+                <%= link_to "-1", downvote_review_votes_path(review), class: "downvote", remote: true, method: :post %>
+
+                <br>
                 Vote Total:
                 <div class= 'vote-total'>
-                  <%=   review.votes.sum(:vote) %>
+
+                  <%=  @vote_total[review.id] %>
+
                 </div>
               </div>
               <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review) if current_user == review.user %>
