@@ -18,27 +18,47 @@ $(function(){ $(document).foundation();
   $('.upvote').on('click', function(event) {
     event.preventDefault();
     var url = $(this).attr('href');
-    var voteTotal = $(this).parent().find('.vote-total');
-    $.ajax({
-      type: 'POST',
-      url: url,
-      dataType: 'json',
-      success: function(response) {
-        voteTotal.text(response);
-      },
-    });
+    var backslash = "/"
+    var urlID = url.split(backslash);
+    var id = urlID[2];
+    var voteTotal = $("#vote-total-" + id);
+    changeUpVote(url, id);
   });
+
   $('.downvote').on('click', function(event) {
     event.preventDefault();
     var url = $(this).attr('href');
-    var voteTotal = $(this).parent().find('.vote-total');
-    $.ajax({
+    var backslash = "/"
+    var urlID = url.split(backslash);
+    var id = urlID[2];
+    var voteTotal = $("#vote-total-" + id);
+    changeDownVote(url, id);
+  });
+});
+    var changeUpVote = function(url, id) {
+      var request = $.ajax({
       type: 'POST',
       url: url,
       dataType: 'json',
-      success: function(response) {
-        voteTotal.text(response);
-      },
+      data: {
+        id: id
+      }
     });
+    request.done(function(data) {
+        $("#vote-total-" + id).text(data);
+    });
+  };
+
+  var changeDownVote = function(url, id) {
+    var request = $.ajax({
+    type: 'POST',
+    url: url,
+    dataType: 'json',
+    data: {
+      id: id
+    }
   });
-});
+  request.done(function(data) {
+      $("#vote-total-" + id).text(data);
+    });
+  };

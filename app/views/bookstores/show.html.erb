@@ -39,17 +39,19 @@
             <br>
 
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
-              <div id="vote-div<%= review.id %>">
-
+              <div class="review">
+                <div id="upvote-<%= review.id %>">
                   <%= link_to "+1", upvote_review_votes_path(review), class: "upvote", remote: true, method: :post %>
+                </div>
 
                 <br>
-
+                <div id="downvote-<%= review.id %>">
                 <%= link_to "-1", downvote_review_votes_path(review), class: "downvote", remote: true, method: :post %>
+              </div>
 
                 <br>
                 Vote Total:
-                <div class= 'vote-total'>
+                <div id= 'vote-total-<%= review.id %>'>
 
                   <%=  @vote_total[review.id] %>
 
