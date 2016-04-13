@@ -36,6 +36,7 @@ $(function(){ $(document).foundation();
 
   $('.downvote').on('click', function(event) {
     event.preventDefault();
+    debugger
     var url = $(this).attr('href');
     var voteTotal = $(this).parent().find('.vote-total');
     $.ajax({

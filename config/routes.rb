@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :reviews do
-    resources :comments
     resources :votes do
       collection do
         post 'upvote'
