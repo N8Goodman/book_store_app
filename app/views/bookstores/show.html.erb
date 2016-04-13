@@ -45,7 +45,7 @@
                 <%= link_to "-1", downvote_review_votes_path(review), method: :post, class: 'downvote' %>
                 Vote Total:
                 <div class= 'vote-total'>
-                  <%=   @votes = Vote.where(review: review).sum(:vote) %>
+                  <%=   review.votes.sum(:vote) %>
                 </div>
               </div>
               <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review) if current_user == review.user %>

@@ -24,6 +24,7 @@
 //     $.ajax({
 //       type: 'POST',
 //       url: url,
+//       dataType: 'json',
 //       success: function(response) {
 //         voteTotal.text(response);
 //       },
