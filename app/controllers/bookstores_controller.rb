@@ -5,7 +5,7 @@ class BookstoresController < ApplicationController
 
   def show
     @bookstore = Bookstore.find(params[:id])
-    @vote_total = Vote.group(:review_id).sum(:vote)
+    
     @rating_collection = Review::RATINGS
     @review = Review.new
     @reviews = @bookstore.reviews.order(:count).page params[:page]

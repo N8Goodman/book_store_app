@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :reviews do
-    resources :comments
-    resources :votes do
+    resources :votes, only: [:create] do
       collection do
         post 'upvote'
         post 'downvote'
