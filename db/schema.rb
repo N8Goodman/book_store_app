@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20160414204839) do
     t.string   "description"
     t.boolean  "beverage"
     t.boolean  "food"
-    t.float    "latitude"
-    t.float    "longitude"
     t.integer  "user_id",                                                                             null: false
     t.string   "zip_code",                                                                            null: false
     t.datetime "created_at",                                                                          null: false
     t.datetime "updated_at",                                                                          null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "img_url",     default: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
   end
 
