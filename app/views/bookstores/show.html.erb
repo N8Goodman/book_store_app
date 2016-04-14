@@ -1,4 +1,5 @@
-<h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
+<div class="body">
+  <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
   <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
 
   <div id="bookstore_image">
@@ -35,21 +36,32 @@
       <% @reviews.each do |review| %>
         <li>
           <div class="review_body">
+            <%= review.user.user_name %>
+            <br>
             <%= review.body%>
             <br>
 
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
+              <div class="vote circle">
+                <div class="increment up">
+                  <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
+                </div>
+                <div class="increment down">
+                  <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
+                </div>
               <div id="vote-div">
-                <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
-                <br>
-                <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
-                Vote Total:
-                <div class= 'vote-total'>
-                  <%= @vote_total[review.id] %>
+                <div class="count">
+                  <div class= 'vote-total'>
+                    <%= @vote_total[review.id] %>
+                  </div>
                 </div>
               </div>
+
+            </div>
+
               <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review) if current_user == review.user %>
               <%= button_to "Delete Review", review, method: :delete if current_user == review.user %>
+
           </div>
         </li>
       <% end %>
@@ -57,5 +69,8 @@
   <br>
 
   <%= render '/reviews/form' %>
+</div>
 
-<%= link_to "Home", bookstores_path %>
+<p>
+
+</p>

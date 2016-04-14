@@ -22,7 +22,7 @@ $(function(){ $(document).foundation();
     var url = $(this).attr('href');
     var voteTotal = $(this).parent().find('.vote-total');
     $.ajax({
-      type: 'POST',
+      method: 'POST',
       url: url,
       dataType: 'json',
       success: function(response) {
@@ -30,6 +30,9 @@ $(function(){ $(document).foundation();
       },
       error: function(){
         alert('You must be signed in');
+      },
+      complete: function(){
+        console.log('complete')
       }
     });
   });

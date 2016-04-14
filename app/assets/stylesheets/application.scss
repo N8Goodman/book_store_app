@@ -22,15 +22,10 @@
 }
 
 #header-text {
-  color: white;
-  font-family: 'Slackey', cursive;
-  letter-spacing: 5px;
-}
-
-.menu-text {
-  font-size: 40px;
-  padding: 0;
-  margin: 0;
+  color: #32E8AB;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2em;
+  margin-bottom: 0;
 }
 
 #search-bar li {
@@ -43,4 +38,20 @@
 
 .bookstores-index {
   padding: 40px;
+}
+
+#search-input {
+  position: relative;
+}
+
+#search-button {
+  position: absolute;
+  right: 0;
+  top: 0.125px;
+  border: 1px solid #cacaca;
+}
+
+input.button {
+  margin: 0;
+  height: 2.3rem;
 }

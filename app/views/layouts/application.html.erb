@@ -17,8 +17,8 @@
   <div class="top-bar">
     <div class="row">
       <div class="top-bar-left small-12 columns">
-        <div class="">
-          <p class="menu-text" id="header-text">Literalist</p>
+        <div class="header-text">
+          <p class="" id="header-text"><%= link_to "Literalist", bookstores_path %></p>
         </div>
       </div>
       <div class="top-bar-right">
@@ -53,8 +53,31 @@
             </ul>
           </li>
 
-          <li><input action="/bookstores" type="search" placeholder="Search"></li>
-          <li><button type="submit" class="button">Search</button></li>
+
+
+
+<li>
+<div id="search-input">
+          <%= form_tag(bookstores_path, method: 'get', id: "search_bar") do %>
+
+
+
+            <%= text_field_tag :search, params[:search], placeholder: "find bookstores!", type: "search" %>
+
+            <div id="search-button">
+
+
+            <%= submit_tag "Search", name: nil, class: "button" %>
+          </div>
+          <% end %>
+          </div>
+          </li>
+
+
+
+
+          <!-- <li><input action="/bookstores" type="search" placeholder="Search"></li>
+          <li><button type="submit" class="button">Search</button></li> -->
         </ul>
       </div>
     </div>
