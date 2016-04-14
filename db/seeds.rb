@@ -86,7 +86,8 @@ bookstore1 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02111",
-  user: admin_user1
+  user: admin_user1,
+  img_url: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
 )
 
 bookstore2 = Bookstore.find_or_create_by(
