@@ -11,27 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414185313) do
+ActiveRecord::Schema.define(version: 20160414204839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookstores", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "address",     null: false
-    t.string   "city",        null: false
-    t.string   "state",       null: false
+    t.string   "name",                                                                                null: false
+    t.string   "address",                                                                             null: false
+    t.string   "city",                                                                                null: false
+    t.string   "state",                                                                               null: false
     t.string   "url"
-    t.string   "img_url"
     t.string   "description"
     t.boolean  "beverage"
     t.boolean  "food"
-    t.integer  "user_id",     null: false
-    t.string   "zip_code",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "user_id",                                                                             null: false
+    t.string   "zip_code",                                                                            null: false
+    t.datetime "created_at",                                                                          null: false
+    t.datetime "updated_at",                                                                          null: false
+    t.string   "img_url",     default: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
   end
 
   add_index "bookstores", ["name", "address", "city", "state"], name: "by_name_and_full_address", unique: true, using: :btree

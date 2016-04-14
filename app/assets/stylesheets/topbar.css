@@ -1,13 +1,14 @@
-.cursive,
-#topbar {
-  font-family: 'Dawning of a New Day', cursive;
-  color: #D88A8A;
-  font-size: 2em;
-  line-height: 50pt;
+
+/*.logo2 {
+  font-family: 'Didact Gothic', sans-serif;
 }
 
-.search_bar{
-  display: inline;
+.search_bar {
+  font-family: 'Didact Gothic', sans-serif;
+  display: inline-block;
   float: right;
   font-size: 0.5em;
-}
+  position: relative;
+  bottom: 90px;
+  left: 10px;
+}*/

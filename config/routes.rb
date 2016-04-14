@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :reviews do
-    resources :comments
     resources :votes do
       collection do
         post 'upvote'
@@ -17,10 +16,20 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
+    resources :users, only: [:index, :update, :destroy]
+    resources :bookstores, only: [:index, :edit, :update, :destroy]
+    resources :reviews, only: [:destroy]
   end
 
   namespace :api do
     resources :bookstores, only: [:show]
+    resources :reviews do
+      resources :votes do
+        collection do
+          post 'upvote'
+          post 'downvote'
+        end
+      end
+    end
   end
 end

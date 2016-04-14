@@ -279,6 +279,12 @@ GEM
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
+    jasmine (2.4.0)
+      jasmine-core (~> 2.4)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.4.1)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -492,6 +498,7 @@ DEPENDENCIES
   fog
   foundation-rails
   geocoder
+  jasmine
   jbuilder (~> 2.0)
   jquery-rails
   json (= 1.8.3)

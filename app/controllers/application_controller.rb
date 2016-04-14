@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
         :remove_avatar
       )
     end
+
     devise_parameter_sanitizer.permit(:account_update) do
        |u| u.permit(
          :user_name,

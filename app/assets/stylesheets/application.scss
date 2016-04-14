@@ -15,11 +15,48 @@
  *= require foundation_and_overrides
 
  */
-body {
-  background-color: #FFFFEE;
+
+#flash-notices {
+  height: 30px;
+
 }
-.body {
-  font-family: 'IM Fell French Canon', serif;
-  color: #D88A8A;
-  font-size: 1.6em;
+
+#header-text {
+  color: #32E8AB;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+#search-bar li {
+  display: inline-block;
+}
+
+.media-object {
+  display: inline-block;
+}
+
+.bookstores-index {
+  padding: 40px;
+}
+
+#search-input {
+  position: relative;
+}
+
+#search-button {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  border: 1px solid #cacaca;
+}
+
+input.button {
+  margin: 0;
+  height: 2.4375rem;
+  box-sizing: border-box;
+}
+
+#book-show {
+  text-align: center;
 }
