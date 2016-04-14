@@ -8,9 +8,9 @@ module API
       else
         @value.vote = 1
       end
-        @value.save
-        @vote_total = Vote.group(:review_id).sum(:vote)
-        render json: @vote_total[@review.id]
+      @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      render json: @vote_total[@review.id]
     end
 
     def downvote
@@ -19,9 +19,9 @@ module API
       else
         @value.vote = -1
       end
-        @value.save
-        @vote_total = Vote.group(:review_id).sum(:vote)
-        render json: @vote_total[@review.id]
+      @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      render json: @vote_total[@review.id]
     end
 
     protected
