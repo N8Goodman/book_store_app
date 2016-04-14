@@ -18,4 +18,16 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+  namespace :api do
+    resources :reviews do
+      resources :votes do
+        collection do
+          post 'upvote'
+          post 'downvote'
+        end
+      end
+    end
+  end
+
 end
