@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    resources :bookstores, only: [:show]
     resources :reviews do
       resources :votes do
         collection do
@@ -31,5 +32,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end
