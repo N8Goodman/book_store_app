@@ -48,8 +48,6 @@ feature "user votes on a review" do
 
     click_link bookstore1.name
     click_on "+1"
-    save_and_open_page
-
 
     expect(page).to have_content "You must be signed in"
   end
