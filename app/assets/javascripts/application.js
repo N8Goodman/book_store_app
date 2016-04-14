@@ -21,7 +21,6 @@ $(function(){ $(document).foundation();
     event.preventDefault();
     event.stopPropagation();
     var url = $(this).parent().attr('action');
-    debugger;
     var voteTotal = $(this).parent().parent().find('.vote-total');
     $.ajax({
       type: 'POST',
