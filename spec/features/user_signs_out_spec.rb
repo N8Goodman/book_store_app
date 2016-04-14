@@ -6,7 +6,6 @@ require 'rails_helper'
 # behalf
 
 feature "user signs out" do
-
   let(:user1) { FactoryGirl.create(:user) }
 
   scenario "user enters valid sign in information and then signs out" do

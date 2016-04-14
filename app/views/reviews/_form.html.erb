@@ -3,37 +3,37 @@
 <%= form_for [@bookstore, @review] do |f| %>
   <div class="required_field">
     <%= f.label :overall_rating, "Overall Rating" %>
-    <%= f.select(:overall_rating, options_for_select(@rating_collection)) %>
+    <%= f.select(:overall_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Overall' }) %>
   </div>
 
   <div class="required_field">
     <%= f.label :price_rating, "Price Rating" %>
-    <%= f.select(:price_rating, options_for_select(@rating_collection)) %>
+    <%= f.select(:price_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Price' }) %>
   </div>
 
   <div class="required_field">
     <%= f.label :variety_rating, "Variety Rating" %>
-    <%= f.select(:variety_rating, options_for_select(@rating_collection)) %>
+    <%= f.select(:variety_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Variety' }) %>
   </div>
 
   <div class="required_field">
     <%= f.label :customer_service_rating, "Customer Service Rating" %>
-    <%= f.select(:customer_service_rating, options_for_select(@rating_collection)) %>
+    <%= f.select(:customer_service_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Customer Service' }) %>
   </div>
 
   <div class="non_required_field">
-    <%= f.label :beverage_rating, "Beverage Rating" %>
-    <%= f.select(:beverage_rating, options_for_select(@rating_collection)) %>
+    <%= f.label :beverage_rating, "Beverage Rating" if @bookstore.beverage %>
+    <%= f.select(:beverage_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Beverage' }) if @bookstore.beverage %>
   </div>
 
   <div class="non_required_field">
-    <%= f.label :food_rating, "Food Rating" %>
-    <%= f.select(:food_rating, options_for_select(@rating_collection)) %>
+    <%= f.label :food_rating, "Food Rating" if @bookstore.food %>
+    <%= f.select(:food_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Food' }) if @bookstore.food %>
   </div>
 
   <div class="non_required_field">
     <%= f.label :atmosphere_rating, "Atmosphere Rating" %>
-    <%= f.select(:atmosphere_rating, options_for_select(@rating_collection)) %>
+    <%= f.select(:atmosphere_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Atmosphere' }) %>
   </div>
 
   <div class="required_field">
@@ -42,6 +42,6 @@
   </div>
 
   <div>
-    <%= f.submit "Add Review" %>
+    <%= f.submit "Submit Review" %>
   </div>
 <% end %>
