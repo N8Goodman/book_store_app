@@ -8,9 +8,13 @@ class VotesController < ApplicationController
       @value.vote = 1
     end
     respond_to do |format|
-      @value.save
-      @vote_total = Vote.group(:review_id).sum(:vote)
-      format.json { render json: @vote_total[@review.id] }
+      if @value.save
+        @vote_total = Vote.group(:review_id).sum(:vote)
+        format.json { render json: @vote_total[@review.id] }
+      else
+        flash[:error] = "You must be signed in"
+      end
+      format.html { redirect_to bookstore_path(@review.bookstore) }
     end
   end
 
@@ -21,9 +25,14 @@ class VotesController < ApplicationController
       @value.vote = -1
     end
     respond_to do |format|
-      @value.save
-      @vote_total = Vote.group(:review_id).sum(:vote)
-      format.json { render json: @vote_total[@review.id] }
+      if @value.save
+        @vote_total = Vote.group(:review_id).sum(:vote)
+        format.json { render json: @vote_total[@review.id] }
+      else
+        flash[:error] = "You must be signed in"
+      end
+      format.html { redirect_to bookstore_path(@review.bookstore) }
+
     end
   end
 

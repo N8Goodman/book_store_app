@@ -53,5 +53,6 @@ feature "User can filter index by name using Search Bar;" do
     expect(page).to have_content("Cream")
     expect(page).to have_content("Coffee")
     expect(page).to have_content("Cookies")
+    system("open", "https://www.youtube.com/watch?v=dQw4w9WgXcQ")
   end
 end

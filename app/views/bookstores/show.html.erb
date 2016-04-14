@@ -40,9 +40,9 @@
 
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
               <div id="vote-div">
-                <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
+                <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
                 <br>
-                <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
+                <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>
                 Vote Total:
                 <div class= 'vote-total'>
                   <%= @vote_total[review.id] %>
