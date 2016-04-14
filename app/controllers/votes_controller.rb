@@ -7,15 +7,13 @@ class VotesController < ApplicationController
     else
       @value.vote = 1
     end
-    respond_to do |format|
-      if @value.save
-        @vote_total = Vote.group(:review_id).sum(:vote)
-        format.json { render json: @vote_total[@review.id] }
-      else
-        flash[:error] = "You must be signed in"
-      end
-      format.html { redirect_to bookstore_path(@review.bookstore) }
+    if @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      flash[:notice] = "Vote added!"
+    else
+      flash[:error] = "You must be signed in"
     end
+    redirect_to bookstore_path(@review.bookstore)
   end
 
   def downvote
@@ -24,16 +22,13 @@ class VotesController < ApplicationController
     else
       @value.vote = -1
     end
-    respond_to do |format|
-      if @value.save
-        @vote_total = Vote.group(:review_id).sum(:vote)
-        format.json { render json: @vote_total[@review.id] }
-      else
-        flash[:error] = "You must be signed in"
-      end
-      format.html { redirect_to bookstore_path(@review.bookstore) }
-
+    if @value.save
+      @vote_total = Vote.group(:review_id).sum(:vote)
+      flash[:notice] = "Vote added!"
+    else
+      flash[:error] = "You must be signed in"
     end
+    redirect_to bookstore_path(@review.bookstore)
   end
 
   protected

@@ -1,0 +1,56 @@
+<%= form_for @bookstore, url: admin_bookstore_path(@bookstore) do |f| %>
+  <div class="required_field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :state %>
+    <%= f.select(:state, options_for_select(@state_collection)) %>
+  </div>
+
+  <div class="required_field">
+    <%= f.label :zip_code, "Zip Code" %>
+    <%= f.text_field :zip_code %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :url, "Website Link" %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :img_url, "Link to Bookstore Image" %>
+    <%= f.text_field :img_url %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :beverage, "Does this bookstore serve beverages?" %>
+    <%= f.check_box :beverage %>
+  </div>
+
+  <div class="non_required_field">
+    <%= f.label :food, "Does this bookstore serve food?" %>
+    <%= f.check_box :food %>
+  </div>
+
+  <div>
+    <%= f.submit "Submit Bookstore" %>
+  </div>
+
+<% end %>
