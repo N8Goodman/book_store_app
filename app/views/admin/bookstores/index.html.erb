@@ -1,0 +1,20 @@
+<h1>Welcome Admin!</h1>
+
+<table class="small-12 columns">
+    <thead>
+      <tr>
+        <th>Bookstore</th>
+        <th>Adress</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookstores.each do |store| %>
+        <tr>
+          <td><%= link_to store.name, edit_admin_bookstore_path("#{store.id}")  %></td>
+          <td><%= store.address %>, <%= store.city %>, <%= store.state%></td>
+          <td><%= link_to "Delete", "/admin/bookstores/#{store.id}", id: "delete#{store.id}", method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
