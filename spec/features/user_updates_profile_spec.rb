@@ -26,7 +26,7 @@ feature "user updates their profile" do
     fill_in "Current password", with: user1.password
     attach_file "Avatar", "#{Rails.root}/spec/support/images/photo.png"
     click_on "update-profile-button"
-    save_and_open_page
+
     expect(page).to have_content "Your account has been updated successfully."
     expect(page).to have_css("img[src*='photo.png']")
   end
