@@ -4,7 +4,7 @@
   <% @bookstores.each do | bookstore |%>
   <div class="small-12 medium-6 large-4 end columns media-object">
     <div class="media-object-section">
-      <a href="/bookstores/<%= bookstore.id %>"> <img class="thumbnail" src="http://placehold.it/100x100"></a>
+      <a href="/bookstores/<%= bookstore.id %>"> <img class="thumbnail" src="<%= bookstore.img_url %>" style="width: 100px; height: 100px"></a>
     </div>
     <div class="media-object-section">
       <h5><%= link_to bookstore.name, bookstore_path(bookstore) %></h5>
