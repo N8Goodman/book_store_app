@@ -14,11 +14,33 @@
   </head>
 
   <body>
+    <div class="top-bar">
+      <div class="row">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Literalist</li>
+            <% if current_user.admin %>
+              <li class="has-submenu">
+                <a href="#">Admin</a>
+                <ul class="submenu menu vertical" data-submenu>
+                  <li><%= link_to "Users", admin_users_path %></li>
+                  <li><%= link_to "Bookstores", admin_bookstores_path %></li>
+                </ul>
+              </li>
+            <% end %>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <div class="callout primary" id = 'topbar'>
-      <div class="row column">
-
-        <h1 class="cursive" style="display: inline-block;">Literalist</h1>
 
         <div style="float:right;">
            <% if !user_signed_in?%>
