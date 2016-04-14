@@ -5,32 +5,52 @@ feature "user votes on a review" do
   let!(:bookstore1) { FactoryGirl.create(:bookstore) }
   let!(:review1) { FactoryGirl.create(:review, bookstore: bookstore1, user: user1) }
 
-  scenario 'user successfully votes on a review', js: true do
+  scenario 'user successfully changes vote on a review' do
     visit root_path
     sign_in(user1)
     click_link bookstore1.name
 
     click_on "-1"
-    expect(page).to have_content "Vote Total: -2"
+    expect(page).to have_content "Vote Total: -1"
     expect(page).to_not have_content "Vote Total: 1"
 
     click_on "+1"
-    expect(page).to have_content "Vote Total: -2"
+    expect(page).to have_content "Vote Total: 1"
     expect(page).to_not have_content "Vote Total: 0"
 
-    click_on "+1"
-    expect(page).to have_content("Vote Total: -2")
   end
 
-  scenario 'user tries to vote without being signed in', js: true do
+  scenario 'user successfully votes on a review' do
     visit root_path
+    sign_in(user1)
+    click_link bookstore1.name
 
+    click_on "-1"
+    expect(page).to have_content "Vote Total: -1"
+    expect(page).to_not have_content "Vote Total: 1"
+  end
+
+  scenario 'user successfully cancels vote on a review' do
+    visit root_path
+    sign_in(user1)
     click_link bookstore1.name
 
     click_on "+1"
-    click_on "-1"
+    expect(page).to have_content "Vote Total: 1"
+    expect(page).to_not have_content "Vote Total: 0"
 
-    text = page.driver.browser.switch_to.alert.text
-    expect(text).to eq "You must be signed in"
+    click_on "+1"
+    expect(page).to have_content("Vote Total: 0")
+  end
+
+  scenario 'user tries to vote without being signed in' do
+    visit root_path
+
+    click_link bookstore1.name
+    click_on "+1"
+    save_and_open_page
+
+
+    expect(page).to have_content "You must be signed in"
   end
 end
