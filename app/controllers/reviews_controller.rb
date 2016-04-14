@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @bookstore = Bookstore.find(params[:bookstore_id])
     @reviews = @bookstore.reviews
     @review = Review.new(review_params)
+
     if current_user && @review.save
       flash[:notice] = "Review successfully added!"
     elsif current_user
