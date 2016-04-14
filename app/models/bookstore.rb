@@ -59,6 +59,9 @@ class Bookstore < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   belongs_to :user
 
+  geocoded_by :full_address
+  after_validation :geocode
+
   validates :name, presence: true
   validates :address, presence: true
   validates :city, presence: true
@@ -76,5 +79,9 @@ class Bookstore < ActiveRecord::Base
     else
       Bookstore.all
     end
+  end
+
+  def full_address
+    "#{address}, #{city}, #{state}"
   end
 end

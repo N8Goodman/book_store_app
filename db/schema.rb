@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411192403) do
+ActiveRecord::Schema.define(version: 20160414185313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20160411192403) do
     t.string   "zip_code",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "bookstores", ["name", "address", "city", "state"], name: "by_name_and_full_address", unique: true, using: :btree
