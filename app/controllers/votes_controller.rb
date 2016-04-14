@@ -32,7 +32,6 @@ class VotesController < ApplicationController
         flash[:error] = "You must be signed in"
       end
       format.html { redirect_to bookstore_path(@review.bookstore) }
-
     end
   end
 
