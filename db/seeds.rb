@@ -152,6 +152,24 @@ bookstore8 = Bookstore.find_or_create_by(
   user: non_admin_user4
 )
 
+bookstore9 = Bookstore.find_or_create_by(
+  name: "Hey Yo Books",
+  address: "900 Where Am I Street",
+  city: "Helena",
+  state: "MT",
+  zip_code: "59601",
+  user: non_admin_user2
+)
+
+bookstore10 = Bookstore.find_or_create_by(
+  name: "Booksicles",
+  address: "10 Whats Up Blvd",
+  city: "Los Angeles",
+  state: "CA",
+  zip_code: "90046",
+  user: non_admin_user2
+)
+
 b1_review1 = Review.find_or_create_by(
   user: non_admin_user1,
   bookstore: bookstore1,

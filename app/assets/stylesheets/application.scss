@@ -15,11 +15,32 @@
  *= require foundation_and_overrides
 
  */
-body {
-  background-color: #FFFFEE;
+
+#flash-notices {
+  height: 30px;
+
 }
-.body {
-  font-family: 'IM Fell French Canon', serif;
-  color: #D88A8A;
-  font-size: 1.6em;
+
+#header-text {
+  color: white;
+  font-family: 'Slackey', cursive;
+  letter-spacing: 5px;
+}
+
+.menu-text {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+#search-bar li {
+  display: inline-block;
+}
+
+.media-object {
+  display: inline-block;
+}
+
+.bookstores-index {
+  padding: 40px;
 }

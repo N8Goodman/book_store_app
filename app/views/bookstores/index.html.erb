@@ -1,22 +1,21 @@
-<h1 class="body">Book Stores Near You</h1>
 
-<ul id="bookstore_list">
+
+<div class="small-12 columns bookstores-index">
   <% @bookstores.each do | bookstore |%>
-    <li class="bookstore">
-       <%= link_to bookstore.name, bookstore_path(bookstore) %>
-    </li>
-  <% end %>
-</ul>
-<%= paginate @bookstores %>
-
-<div class="row small-up-2 medium-up-3 large-up-4">
-  <div class="column">
-    <img class="thumbnail" src="http://placehold.it/550x550">
-    <h5>INSERT NAME HERE</h5>
+  <div class="small-12 medium-4 columns end media-object">
+    <div class="media-object-section">
+      <a href="/bookstores/<%= bookstore.id %>"> <img class="thumbnail" src="http://placehold.it/100x100"></a>
+    </div>
+    <div class="media-object-section">
+      <h5><%= link_to bookstore.name, bookstore_path(bookstore) %></h5>
+      <p><%= bookstore.city%>, <%= bookstore.state %></p>
+    </div>
   </div>
+  <% end %>
 </div>
 <hr>
-<div class="row">
-<div class="medium-6 columns">
+<div class="pagination">
+  <%= paginate @bookstores %>
+</div>
 
 <%= link_to "Add New Bookstore", new_bookstore_path %>
