@@ -1,10 +1,19 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
 admin_user1 = User.find_by(email: "historybuff40@example.com")
 unless admin_user1.present?
   admin_user1 = User.create(
     user_name: "history_buff",
     email: "historybuff40@example.com",
+<<<<<<< HEAD
     password: ENV["ADMIN_1_KEY"],
     password_confirmation: ENV["ADMIN_1_KEY"],
+=======
+    password: "inthepast",
+    password_confirmation: "inthepast",
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
     admin: true
 )
 end
@@ -14,8 +23,13 @@ unless admin_user2.present?
   admin_user2 = User.create(
     user_name: "admin1",
     email: "awesomeadmin@example.com",
+<<<<<<< HEAD
     password: ENV["ADMIN_2_KEY"],
     password_confirmation: ENV["ADMIN_2_KEY"],
+=======
+    password: "bestadmineva",
+    password_confirmation: "bestadmineva",
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
     admin: true
 )
 end
@@ -82,7 +96,11 @@ end
 
 bookstore1 = Bookstore.find_or_create_by(
   name: "Best Books",
+<<<<<<< HEAD
   address: "101 Main St.",
+=======
+  address: "101 Main Street",
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
   city: "Boston",
   state: "MA",
   zip_code: "02111",
@@ -91,7 +109,11 @@ bookstore1 = Bookstore.find_or_create_by(
 
 bookstore2 = Bookstore.find_or_create_by(
   name: "Book Nook",
+<<<<<<< HEAD
   address: "777 Main St.",
+=======
+  address: "777 Main Street",
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
   city: "Edgartown",
   state: "MA",
   zip_code: "02539",
@@ -109,7 +131,11 @@ bookstore3 = Bookstore.find_or_create_by(
 
 bookstore4 = Bookstore.find_or_create_by(
   name: "Anderson's Book Haven",
+<<<<<<< HEAD
   address: "16 Oak St.",
+=======
+  address: "16 Oak Street",
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
   city: "Harrisburg",
   state: "PA",
   zip_code: "17112",
@@ -151,6 +177,7 @@ bookstore8 = Bookstore.find_or_create_by(
   zip_code: "02138",
   user: non_admin_user4
 )
+<<<<<<< HEAD
 
 bookstore9 = Bookstore.find_or_create_by(
   name: "Chocolate & Pages",
@@ -338,3 +365,5 @@ b2_review4 = Review.find_or_create_by(
   customer_service_rating: "2",
   body: "Eh."
 )
+=======
+>>>>>>> ea88d6a3946a2e9233d7e8cf755522005a7a1703
