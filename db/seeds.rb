@@ -86,7 +86,8 @@ bookstore1 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02111",
-  user: admin_user1
+  user: admin_user1,
+  img_url: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
 )
 
 bookstore2 = Bookstore.find_or_create_by(
@@ -153,13 +154,14 @@ bookstore8 = Bookstore.find_or_create_by(
 )
 
 bookstore9 = Bookstore.find_or_create_by(
-  name: "Chocolate & Pages",
-  address: "19 Berry St.",
+  name: "Hey Yo Books",
+  address: "900 Where Am I Street",
   city: "Helena",
   state: "MT",
   zip_code: "59601",
-  user: admin_user1
+  user: non_admin_user2
 )
+
 
 bookstore10 = Bookstore.find_or_create_by(
   name: "Litterally by Design",
@@ -258,6 +260,24 @@ bookstore20 = Bookstore.find_or_create_by(
   state: "TN",
   zip_code: "37115",
   user: admin_user2
+)
+
+bookstore21 = Bookstore.find_or_create_by(
+  name: "Booksicles",
+  address: "10 Whats Up Blvd",
+  city: "Los Angeles",
+  state: "CA",
+  zip_code: "90046",
+  user: non_admin_user2
+)
+
+bookstore22 = Bookstore.find_or_create_by(
+  name: "Chocolate & Pages",
+  address: "19 Berry St.",
+  city: "Helena",
+  state: "MT",
+  zip_code: "59601",
+  user: admin_user1
 )
 
 b1_review1 = Review.find_or_create_by(

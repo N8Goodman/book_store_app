@@ -1,9 +1,14 @@
-<h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
-  <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
+<div class="body-bookstore-show">
+  <div class="row small-5 small-centered columns" id="book-show">
+
+
+  <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
+
 
   <div id="bookstore_image">
-    <img src=<%= @bookstore.img_url%>>
+    <img src="<%= @bookstore.img_url%>">
   </div>
+    <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
 
   <div id="bookstore_website">
     <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
@@ -12,6 +17,7 @@
   <div id="bookstore_description">
     Description: <%= @bookstore.description if @bookstore.description %>
   </div>
+
 
   <% if @bookstore.food == true %>
     <div id="bookstore_food">
@@ -28,6 +34,7 @@
   <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore) if current_user == @bookstore.user %>
   <br>
   <%= button_to "Delete Bookstore", @bookstore, method: :delete if current_user == @bookstore.user %>
+    </div>
   <br>
   <h3>Reviews:</h3>
 
@@ -35,11 +42,12 @@
       <% @reviews.each do |review| %>
         <li>
           <div class="review_body">
+            <%= review.user.user_name %>
+            <br>
             <%= review.body%>
             <br>
 
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
-              <div id="vote-div">
                 <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
                 <br>
                 <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>
@@ -48,8 +56,12 @@
                   <%= @vote_total[review.id] %>
                 </div>
               </div>
+
+            </div>
+
               <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review) if current_user == review.user %>
               <%= button_to "Delete Review", review, method: :delete if current_user == review.user %>
+
           </div>
         </li>
       <% end %>
@@ -57,5 +69,4 @@
   <br>
 
   <%= render '/reviews/form' %>
-
-<%= link_to "Home", bookstores_path %>
+</div>

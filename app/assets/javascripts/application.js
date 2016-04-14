@@ -31,6 +31,9 @@ $(function(){ $(document).foundation();
       },
       error: function(){
         alert('You must be signed in');
+      },
+      complete: function(){
+        console.log('complete')
       }
     });
   });

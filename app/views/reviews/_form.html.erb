@@ -1,6 +1,8 @@
 <h4>Add Review:</h4>
 
 <%= form_for [@bookstore, @review] do |f| %>
+<div style="display: inline-block;">
+<div style="width: 150px;">
   <div class="required_field">
     <%= f.label :overall_rating, "Overall Rating" %>
     <%= f.select(:overall_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Overall' }) %>
@@ -35,11 +37,16 @@
     <%= f.label :atmosphere_rating, "Atmosphere Rating" %>
     <%= f.select(:atmosphere_rating, options_for_select(@rating_collection), { :include_blank=>true, :prompt =>  'Atmosphere' }) %>
   </div>
+</div>
+</div>
 
+<div style="width: 400px;">
   <div class="required_field">
     <%= f.label :body, "Comments:" %>
     <%= f.text_area :body %>
   </div>
+</div>
+
 
   <div>
     <%= f.submit "Submit Review" %>
