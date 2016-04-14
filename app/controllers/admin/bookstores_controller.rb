@@ -28,7 +28,7 @@ class Admin::BookstoresController < AdminController
     flash[:notice] = "Bookstore deleted successfully."
     redirect_to admin_bookstores_path
     else
-      flash[:notice] = "Failed!"
+      flash[:notice] = "Failed! Bookstore not found."
     render :index
     end
   end

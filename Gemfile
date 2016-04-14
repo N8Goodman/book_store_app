@@ -29,6 +29,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara-rails'
   gem 'launchy'
+  gem "jasmine"
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda'

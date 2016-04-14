@@ -5,9 +5,9 @@ class Admin::ReviewsController < AdminController
     if @review
        @review.destroy!
     flash[:notice] = "Review deleted successfully."
-  else
-    flash[:notice] = "Failed!"
+    else
+    flash[:notice] = "Failed! Review not found."
     end
-  redirect_to edit_admin_bookstore_path(@bookstore)
+    redirect_to edit_admin_bookstore_path(@bookstore)
   end
 end

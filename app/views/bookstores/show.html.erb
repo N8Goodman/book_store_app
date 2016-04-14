@@ -48,18 +48,12 @@
             <br>
 
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
-              <div class="vote circle">
-                <div class="increment up">
-                  <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
-                </div>
-                <div class="increment down">
-                  <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
-                </div>
-              <div id="vote-div">
-                <div class="count">
-                  <div class= 'vote-total'>
-                    <%= @vote_total[review.id] %>
-                  </div>
+                <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
+                <br>
+                <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>
+                Vote Total:
+                <div class= 'vote-total'>
+                  <%= @vote_total[review.id] %>
                 </div>
               </div>
 

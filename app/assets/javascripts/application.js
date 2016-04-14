@@ -17,13 +17,14 @@
 
 
 $(function(){ $(document).foundation();
-  $('.upvote').on('click', function(event) {
+  $('input#upvote').on('click', function(event) {
     event.preventDefault();
-    var url = $(this).attr('href');
-    var voteTotal = $(this).parent().find('.vote-total');
+    event.stopPropagation();
+    var url = $(this).parent().attr('action');
+    var voteTotal = $(this).parent().parent().find('.vote-total');
     $.ajax({
-      method: 'POST',
-      url: url,
+      type: 'POST',
+      url: '/api' + url,
       dataType: 'json',
       success: function(response) {
         voteTotal.text(response);
@@ -37,13 +38,14 @@ $(function(){ $(document).foundation();
     });
   });
 
-  $('.downvote').on('click', function(event) {
+  $('input#downvote').on('click', function(event) {
     event.preventDefault();
-    var url = $(this).attr('href');
-    var voteTotal = $(this).parent().find('.vote-total');
+    event.stopPropagation();
+    var url = $(this).parent().attr('action');
+    var voteTotal = $(this).parent().parent().find('.vote-total');
     $.ajax({
       type: 'POST',
-      url: url,
+      url: '/api'+url,
       dataType: 'json',
       success: function(response) {
         voteTotal.text(response);
