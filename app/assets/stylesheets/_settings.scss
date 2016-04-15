@@ -50,7 +50,8 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #32E8AB,
+  primary: #ff751a,
+  // #32E8AB,
   secondary: #777,
   success: #3adb76,
   warning: #ffae00,
@@ -237,7 +238,7 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: #ff751a;
+$button-background: #32E8AB;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
@@ -560,7 +561,8 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: #2D0936;
+$topbar-background: #33001a;
+ // #2D0936;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

@@ -1,25 +1,28 @@
-<div class="body-bookstore-show">
-  <div class="row small-5 small-centered columns" id="book-show">
+<div class="body-bookstore-show small-12 columns">
+  <div class="small-12 medium-6 columns" id="book-show">
+    <div class="">
+      <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
+    </div>
+    <div class="row small-12 medium-6 columns" id="bookstore_image">
+      <img src="<%= @bookstore.img_url%>">
+    </div>
+    <div class="">
+      <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
+    </div>
+    <% if @bookstore.description.present? %>
+      <div id="bookstore_description">
+        Description: <%= @bookstore.description if @bookstore.description %>
+      </div>
+      <% end %>
 
-
-  <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
-
-
-  <div id="bookstore_image">
-    <img src="<%= @bookstore.img_url%>">
+    <div id="bookstore_website">
+      <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
+    </div>
   </div>
-    <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
-
-  <div id="bookstore_website">
-    <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
-  </div>
+    <div class="small-12 medium-6 columns">
 
   <div id="googleMap" style="width:500px;height:380px;"></div>
-
-  <div id="bookstore_description">
-    Description: <%= @bookstore.description if @bookstore.description %>
-  </div>
-
+</div>
 
   <% if @bookstore.food == true %>
     <div id="bookstore_food">
@@ -34,41 +37,65 @@
   <% end %>
 
   <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore) if current_user == @bookstore.user %>
-  <br>
   <%= button_to "Delete Bookstore", @bookstore, method: :delete if current_user == @bookstore.user %>
     </div>
-  <br>
-  <h3>Reviews:</h3>
+  <div class="small-12 columns">
 
-    <ul id="review_list">
+
+  <h4>Reviews:</h4>
+
       <% @reviews.each do |review| %>
-        <li>
-          <div class="review_body">
-            <%= review.user.user_name %>
-            <br>
-            <%= review.body%>
-            <br>
+      <div class="small-12 medium-6 large-4 end columns media-object">
+        <div class="row small-12 columns">
+          <div class=" media-object-section">
+            <img class="thumbnail" src="<%= review.user.avatar %>" style="width: 50px; height: 50px"></a>
+          </div>
+          <div class="media-object-section">
+            <p><%= review.user.user_name %></p>
+          </div>
+        </div>
 
-              Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
-                <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
-                <br>
-                <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>
-                Vote Total:
-                <div class= 'vote-total'>
-                  <%= @vote_total[review.id] %>
-                </div>
-              </div>
+        <div class="row small-12 columns">
+          <div class=" media-object-section">
+            <div>
+              <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
+            </div>
+            <div class= 'vote-total'>
+              Vote Total: <%= @vote_total[review.id] %>
+            </div>
+            <div>
 
+
+              <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>
+            </div>
+          </div>
+
+          <div class=" media-object-section">
+            <div class="small-12 columns">
+                <p><%= review.body%></p>
             </div>
 
-              <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review) if current_user == review.user %>
-              <%= button_to "Delete Review", review, method: :delete if current_user == review.user %>
-
+            <div class="small-12 columns">
+              Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
+            </div>
+            <div class="small-12 columns">
+              <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review), class: "button" if current_user == review.user %>
+            </div>
+            <div>
+            <%= button_to "Delete Review", review, method: :delete if current_user == review.user %>
+            </div>
           </div>
-        </li>
-      <% end %>
-    </ul>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
   <br>
+  <div class="small-12 medium-6 medium-centered columns">
+
+
 
   <%= render '/reviews/form' %>
+    </div>
+  </div>
 </div>
