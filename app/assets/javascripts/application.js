@@ -24,7 +24,7 @@ $(function(){ $(document).foundation();
     var voteTotal = $(this).parent().parent().find('.vote-total');
     $.ajax({
       type: 'POST',
-      url: url,
+      url: '/api' + url,
       dataType: 'json',
       success: function(response) {
         voteTotal.text(response);
@@ -42,7 +42,7 @@ $(function(){ $(document).foundation();
     var voteTotal = $(this).parent().parent().find('.vote-total');
     $.ajax({
       type: 'POST',
-      url: url,
+      url: '/api'+url,
       dataType: 'json',
       success: function(response) {
         voteTotal.text(response);
