@@ -106,6 +106,9 @@ bookstore1 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02111",
+  beverage: true,
+  food: true,
+  description: "Best Books sprang to life in May 1978 as a small, intimate bookstore offering titles by the newer voices as well as established authors. As the staff and customers tended the books with care much like a garden, the store grew and blossomed. By 1982, we  spread to three and a half floors, and added a cafe.",
   img_url: "http://athensohio.kevinmorganstudio.com/wp-content/uploads/2014/12/pendulo-bookstore.jpg",
   user: admin_user1
 
@@ -117,6 +120,7 @@ bookstore2 = Bookstore.find_or_create_by(
   city: "Edgartown",
   state: "MA",
   zip_code: "02539",
+  beverage: true,
   img_url: " http://www.octaviabooks.com/files/octaviabooks/Octavia_Books_10-09_106.jpg",
   user: non_admin_user6
 )
@@ -137,6 +141,7 @@ bookstore4 = Bookstore.find_or_create_by(
   city: "Harrisburg",
   state: "PA",
   zip_code: "17112",
+  description: "We sell a variety new books, postcards, cards, blank journals, gifts and magazines. We host events with local and national authors, support the community, and host a kids and adult book group.",
   img_url: "https://s-media-cache-ak0.pinimg.com/236x/10/b9/ab/10b9ab26c860fbd148f8a631722ab350.jpg",
   user: admin_user2
 )
@@ -157,6 +162,7 @@ bookstore6 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02139",
+  description: "We are a local, independent bookstore. Our goal is to promote the love of reading to all, by carrying the best selection of books anywhere!",
   img_url: "http://www.chicagotribune.com/media/photo/2011-11/66187729.jpg",
   user: non_admin_user3
 )
@@ -167,6 +173,7 @@ bookstore7 = Bookstore.find_or_create_by(
   city: "Camp Hill",
   state: "PA",
   zip_code: "17011",
+  description: "Your one stop shop for buying and selling textbooks and educational books.",
   img_url: "https://media2.wnyc.org/i/620/372/c/80/photologue/photos/MAIN_newstop%20bookstore.jpg",
   user: non_admin_user6
 )
@@ -336,6 +343,8 @@ b1_review2 = Review.find_or_create_by(
   overall_rating: "2",
   price_rating: "2",
   variety_rating: "2",
+  beverage_rating: "3",
+  food_rating: "3",
   customer_service_rating: "2",
   body: "Meh."
 )
@@ -368,7 +377,6 @@ b2_review1 = Review.find_or_create_by(
   variety_rating: "5",
   customer_service_rating: "5",
   beverage_rating: "5",
-  food_rating: "5",
   body: "Amazing!!!"
 )
 
@@ -486,4 +494,14 @@ b6_review1 = Review.find_or_create_by(
   variety_rating: "3",
   customer_service_rating: "5",
   body: "Great customer service but this place is really only ideal for families with small children"
+)
+
+b6_review2 = Review.find_or_create_by(
+  user: non_admin_user5,
+  bookstore: bookstore6,
+  overall_rating: "5",
+  price_rating: "5",
+  variety_rating: "4",
+  customer_service_rating: "5",
+  body: "Nice place."
 )
