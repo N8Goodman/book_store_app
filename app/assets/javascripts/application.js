@@ -66,6 +66,8 @@ $(function(){ $(document).foundation();
       dataType: 'json',
       success: function(response) {
         $('#maphere').append("<div id='googleMap' style='width:500px;height:380px;'></div>");
+        $('#getmap').hide();
+
         initialize(response.latitude, response.longitude);
       },
     });
