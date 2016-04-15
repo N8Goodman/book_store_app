@@ -24,7 +24,7 @@
 #header-text {
   color: #32E8AB;
   font-family: 'Fredericka the Great', cursive;
-  font-size: 2em;
+  font-size: 3em;
   margin-bottom: 0;
 }
 
@@ -42,6 +42,7 @@
 
 #search-input {
   position: relative;
+
 }
 
 #search-button {
@@ -59,4 +60,42 @@ input.button {
 
 #book-show {
   text-align: center;
+}
+
+#header-border {
+  background-color: purple;
+  height: 20px;
+}
+
+#right-side {
+  margin-top: 20px;
+}
+
+#search-bar-div {
+  margin-right: 0;
+  margin-top: 20px;
+}
+
+.top-bar {
+  border-bottom: solid 5px;
+  border-color: #ff751a;
+}
+
+#header-link-color {
+  color: #32E8AB;
+}
+
+.bookstores-index {
+  padding-bottom: 0;
+
+}
+
+#reviews-form {
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+#bookstore_title {
+  font-size: 30px;
+  margin: 20px;
 }

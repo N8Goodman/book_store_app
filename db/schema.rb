@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20160414204839) do
     t.string   "zip_code",                                                                            null: false
     t.datetime "created_at",                                                                          null: false
     t.datetime "updated_at",                                                                          null: false
+    t.string   "img_url",     default: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "img_url",     default: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
   end
 
   add_index "bookstores", ["name", "address", "city", "state"], name: "by_name_and_full_address", unique: true, using: :btree
