@@ -99,6 +99,9 @@ input.button {
   font-size: 30px;
   margin: 20px;
   text-align: center;
+  color: #33001a;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 #bookstore-image {
@@ -113,11 +116,13 @@ input.button {
 }
 
 #downvote {
-  background-color: #ff751a;
+  background-color: #33001a;
+  color: white;
 }
 
 #upvote {
-  background-color: #ff751a;
+  background-color: #33001a;
+  color: white;
 }
 
 .store-info {
@@ -150,4 +155,20 @@ input.button {
 
 .margin-devise {
   margin-bottom: 50px;
+}
+
+.margin-map-link {
+  margin-top: 5px;
+}
+
+div.inline-links-div div {
+  display: inline-block;
+}
+
+.margin-book-info {
+  margin: 0;
+}
+
+.twitter-button {
+  margin: 0
 }

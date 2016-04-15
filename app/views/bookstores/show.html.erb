@@ -2,7 +2,7 @@
 
 <div class="row small-12 columns store-info">
 
-    <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
+    <h1 id="bookstore_title"><%= @bookstore.name %></h1>
   <div class="small-12 medium-6 columns" id="book-show">
 
 
@@ -40,18 +40,18 @@
       This bookstore serves beverages!
     </div>
   <% end %>
-  <div class="">
+  <div class="small-12 columns inline-links-div">
+    <div class="margin-map-link">
+      <%= link_to "Get Map", api_bookstore_path(@bookstore), class: "button purple-button margin-book-info", id: 'getmap' %>
+    </div>
 
+    <div>
+      <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore), class: "button margin-book-info" if current_user == @bookstore.user %>
+    </div>
 
-    <%= link_to "Get Map", api_bookstore_path(@bookstore), class: "button purple-button", id: 'getmap' %>
-  </div>
-
-  <div class="small-12 columns">
-    <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore), class: "button" if current_user == @bookstore.user %>
-  </div>
-
-  <div class="small-12 columns">
-    <%= button_to "Delete Bookstore", @bookstore, class: "button purple-button", method: :delete, class: "button" if current_user == @bookstore.user %>
+    <div>
+      <%= button_to "Delete Bookstore", @bookstore, class: "button purple-button margin-book-info", method: :delete if current_user == @bookstore.user %>
+    </div>
   </div>
 </div>
 

@@ -3,6 +3,22 @@
 <head>
 
 <script src="http://maps.googleapis.com/maps/api/js?key=" + "<%= ENV['GOOGLE_PLACES_BROWSWER_KEY'] %>" ></script>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Yellowtail|Fredericka+the+Great|Black+Ops+One|Six+Caps|Slackey|Over+the+Rainbow' rel='stylesheet' type='text/css'>
   <meta charset="utf-8" />
@@ -72,6 +88,10 @@
       <% end %>
     </div>
   </div>
+  <div class="small-12 medium-6 columns" id="twitter-button"   data-size="small" >
+    <a class="twitter-follow-button" data-show-count="false" href="https://twitter.com/Literalist_App">
+Follow @LiteralistApp</a>
+</div>
 
   <div class="notices small-12 columns" id="flash-notices">
     <% flash.each do |name, msg| %>
