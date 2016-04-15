@@ -106,16 +106,18 @@ bookstore1 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02111",
-  user: admin_user1,
-  img_url: "https://pbs.twimg.com/profile_images/730703875/twitter5.jpg"
+  img_url: "http://athensohio.kevinmorganstudio.com/wp-content/uploads/2014/12/pendulo-bookstore.jpg",
+  user: admin_user1
+
 )
 
 bookstore2 = Bookstore.find_or_create_by(
-  name: "Book Nook",
-  address: "777 Main St.",
+  name: "Octavia Books",
+  address: "513 Main St.",
   city: "Edgartown",
   state: "MA",
   zip_code: "02539",
+  img_url: " http://www.octaviabooks.com/files/octaviabooks/Octavia_Books_10-09_106.jpg",
   user: non_admin_user6
 )
 
@@ -125,6 +127,7 @@ bookstore3 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02142",
+  img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI1Atuoa6MRu5zKGB3Q5zXPfwDrfIIh6KpT0wBb3FpwFaB9Mal",
   user: non_admin_user5
 )
 
@@ -134,15 +137,17 @@ bookstore4 = Bookstore.find_or_create_by(
   city: "Harrisburg",
   state: "PA",
   zip_code: "17112",
+  img_url: "https://s-media-cache-ak0.pinimg.com/236x/10/b9/ab/10b9ab26c860fbd148f8a631722ab350.jpg",
   user: admin_user2
 )
 
 bookstore5 = Bookstore.find_or_create_by(
-  name: "Dragons & Empires",
+  name: "Greenlight Bookstore",
   address: "55 Bow St.",
   city: "Somerville",
   state: "MA",
   zip_code: "02143",
+  img_url: "http://www.affinia.com/polopoly_fs/1.18972.1446493947!/fileImage/httpImage/image.jpg_gen/derivatives/landscape_1280/greenlight-bookstore.jpg",
   user: non_admin_user2
 )
 
@@ -152,6 +157,7 @@ bookstore6 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02139",
+  img_url: "http://www.chicagotribune.com/media/photo/2011-11/66187729.jpg",
   user: non_admin_user3
 )
 
@@ -161,6 +167,7 @@ bookstore7 = Bookstore.find_or_create_by(
   city: "Camp Hill",
   state: "PA",
   zip_code: "17011",
+  img_url: "https://media2.wnyc.org/i/620/372/c/80/photologue/photos/MAIN_newstop%20bookstore.jpg",
   user: non_admin_user6
 )
 
@@ -170,6 +177,7 @@ bookstore8 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02138",
+  img_url: "http://www.bunchofgrapes.com/files/bunchofgrapes/BOG_New_Front.jpg",
   user: non_admin_user4
 )
 
@@ -179,16 +187,16 @@ bookstore9 = Bookstore.find_or_create_by(
   city: "Helena",
   state: "MT",
   zip_code: "59601",
+  img_url: "http://www.neontommy.com/sites/default/files/mt_legacy/bookstores_f.jpg",
   user: non_admin_user2
 )
-
 
 bookstore10 = Bookstore.find_or_create_by(
   name: "Litterally by Design",
   address: "731 Calvin Dr.",
   city: "Phoenix",
   state: "AZ",
-  zip_code: "85001",
+  img_url: "http://pixel.brit.co/wp-content/uploads/2015/04/7918098388_a08c1d5d51_b-645x428.jpg",
   user: non_admin_user6
 )
 
@@ -198,6 +206,7 @@ bookstore11 = Bookstore.find_or_create_by(
   city: "Rotunda West",
   state: "FL",
   zip_code: "33947",
+  img_url: "https://onthewingsofthehummingbird.files.wordpress.com/2014/06/wallpaper-2646.jpg",
   user: non_admin_user5
 )
 
@@ -207,6 +216,7 @@ bookstore12 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02138",
+  img_url: "https://img.buzzfeed.com/buzzfeed-static/static/2014-07/2/11/enhanced/webdr08/grid-cell-25139-1404314658-0.jpg",
   user: admin_user2
 )
 
@@ -216,15 +226,17 @@ bookstore13 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02142",
+  img_url: "http://www.edrants.com/wp-content/uploads/2011/06/wordbrooklyn.jpg",
   user: non_admin_user2
 )
 
 bookstore14 = Bookstore.find_or_create_by(
-  name: "Argyle Books",
+  name: "The Gallery Bookstore",
   address: "45 Paisley Way",
   city: "Athens",
   state: "GA",
   zip_code: "30602",
+  img_url: "http://www.gallerybookstorechicago.com/images/photos/new_sign_2011.jpg",
   user: non_admin_user3
 )
 
@@ -234,6 +246,7 @@ bookstore15 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02115",
+  img_url:"https://s-media-cache-ak0.pinimg.com/736x/0b/c5/51/0bc551a1711d8aa92dad26d0c89efc5e.jpg",
   user: non_admin_user6
 )
 
@@ -243,6 +256,7 @@ bookstore16 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02138",
+  img_url: "http://www.rizzoliusa.com/files/2014/01/altRIZZOLI-superJumbo.jpg",
   user: non_admin_user4
 )
 
@@ -252,6 +266,7 @@ bookstore17 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02111",
+  img_url: "http://mkandcompanyinteriordesign.files.wordpress.com/2014/01/rizzoli-bookstore-new_york_315_rizzoli_bookstore_4e9321fc6a1074205b0000e1_store_main_new.jpg",
   user: admin_user1
 )
 
@@ -261,15 +276,17 @@ bookstore18 = Bookstore.find_or_create_by(
   city: "Modesto",
   state: "CA",
   zip_code: "95351",
+  img_url: "http://d3b8erylo0uriu.cloudfront.net/wp-content/uploads/2014/07/Quality-Quidditch-Supplies-1.jpg",
   user: non_admin_user6
 )
 
 bookstore19 = Bookstore.find_or_create_by(
-  name: "Anachronisms and Non-sequiturs",
+  name: "Non-sequiturs",
   address: "42 River Rd.",
   city: "Ackworth",
   state: "IA",
   zip_code: "50001",
+  img_url: "http://cdn.mhpbooks.com/uploads/2014/04/IMG_0443.jpg",
   user: non_admin_user5
 )
 
@@ -279,6 +296,7 @@ bookstore20 = Bookstore.find_or_create_by(
   city: "Nashville",
   state: "TN",
   zip_code: "37115",
+  img_url: "https://img.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2015/09/21/Magazine/Images/IMG_8682.JPG?uuid=kktsQGCDEeWXV-SSc_BfZQ",
   user: admin_user2
 )
 
@@ -288,15 +306,17 @@ bookstore21 = Bookstore.find_or_create_by(
   city: "Los Angeles",
   state: "CA",
   zip_code: "90046",
+  img_url: "http://today.brown.edu/files/images/BookstoreDesk.jpg",
   user: non_admin_user2
 )
 
 bookstore22 = Bookstore.find_or_create_by(
-  name: "Chocolate & Pages",
+  name: "City Lights",
   address: "19 Berry St.",
   city: "Helena",
   state: "MT",
   zip_code: "59601",
+  img_url: "http://img2.10bestmedia.com/Images/Photos/34789/city-lights-bookstore-san-francisco-ca-usa-shopping-search-all-shopping-1554895_54_990x660_201406011146.jpg",
   user: admin_user1
 )
 
@@ -418,4 +438,52 @@ b4_review3 = Review.find_or_create_by(
   price_rating: "1",
   variety_rating: "2",
   customer_service_rating: "1"
+)
+
+b5_review1 = Review.find_or_create_by(
+  user: non_admin_user3,
+  bookstore: bookstore5,
+  overall_rating: "5",
+  price_rating: "5",
+  variety_rating: "5",
+  customer_service_rating: "5",
+  body: "Finally! I found MY bookstore!"
+)
+
+b5_review2 = Review.find_or_create_by(
+  user: non_admin_user6,
+  bookstore: bookstore5,
+  overall_rating: "3",
+  price_rating: "4",
+  variety_rating: "4",
+  customer_service_rating: "3"
+)
+
+b5_review3 = Review.find_or_create_by(
+  user: non_admin_user1,
+  bookstore: bookstore5,
+  overall_rating: "4",
+  price_rating: "5",
+  variety_rating: "4",
+  customer_service_rating: "4"
+)
+
+b5_review4 = Review.find_or_create_by(
+  user: non_admin_user2,
+  bookstore: bookstore5,
+  overall_rating: "4",
+  price_rating: "5",
+  variety_rating: "4",
+  customer_service_rating: "5",
+  body: "Great prices but I wish they had a better non-fiction section."
+)
+
+b6_review1 = Review.find_or_create_by(
+  user: non_admin_user3,
+  bookstore: bookstore6,
+  overall_rating: "3",
+  price_rating: "3",
+  variety_rating: "3",
+  customer_service_rating: "5",
+  body: "Great customer service but this place is really only ideal for families with small children"
 )
