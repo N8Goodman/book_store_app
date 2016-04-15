@@ -77,7 +77,7 @@ $(function(){ $(document).foundation();
       success: function(response) {
         $('#maphere').append("<div id='googleMap' style='width:500px;height:380px;'></div>");
         $('#getmap').hide();
-        initialize(response.latitude, response.longitude);
+        initMap(response.latitude, response.longitude);
       },
     });
   });
@@ -85,11 +85,14 @@ $(function(){ $(document).foundation();
 
 
 
-var initialize = function(lat, lng) {
-  var mapProp = {
-    center:new google.maps.LatLng(lat,lng),
+var initMap = function(lat, lng) {
+  var myLatLng = {lat: lat, lng: lng};
+  var map = new google.maps.Map(document.getElementById('googleMap'), {
     zoom:15,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById('googleMap'), mapProp);
+    center: myLatLng
+  });
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map
+  });
 }
