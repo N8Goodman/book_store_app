@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Yellowtail|Fredericka+the+Great|Black+Ops+One|Six+Caps|Slackey|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
 <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Yellowtail|Fredericka+the+Great|Black+Ops+One|Six+Caps|Slackey|Over+the+Rainbow' rel='stylesheet' type='text/css'>
   <meta charset="utf-8" />
@@ -18,10 +22,11 @@
     <div class="row">
       <div class="top-bar-left small-12 columns">
         <div class="header-text">
-          <p class="" id="header-text"><%= link_to "Literalist", bookstores_path %></p>
+          <p class="" id="header-text"><%= link_to "Literalist", root_path, id: "header-link-color" %></p>
+
         </div>
       </div>
-      <div class="top-bar-right">
+      <div class="top-bar-right" id="right-side">
         <ul class="dropdown menu" data-dropdown-menu>
           <% if current_user && current_user.admin %>
           <li class="has-submenu">
@@ -50,36 +55,23 @@
                 <%= image_tag current_user.avatar.thumb.url if current_user.avatar.present? %>
               </li>
               <% end %>
+
             </ul>
           </li>
-
-
-
-
-<li>
-<div id="search-input">
-          <%= form_tag(bookstores_path, method: 'get', id: "search_bar") do %>
-
-
-
-            <%= text_field_tag :search, params[:search], placeholder: "find bookstores!", type: "search" %>
-
-            <div id="search-button">
-
-
-            <%= submit_tag "Search", name: nil, class: "button" %>
-          </div>
-          <% end %>
-          </div>
-          </li>
-
-
-
-
-          <!-- <li><input action="/bookstores" type="search" placeholder="Search"></li>
-          <li><button type="submit" class="button">Search</button></li> -->
         </ul>
       </div>
+    </div>
+  </div>
+
+
+  <div class="row small-12 medium-6 columns" id="search-bar-div">
+    <div id="search-input">
+      <%= form_tag(bookstores_path, method: 'get', id: "search_bar") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "find bookstores!", type: "search" %>
+        <div id="search-button">
+          <%= submit_tag "Search", name: nil, class: "button" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
