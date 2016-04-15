@@ -1,26 +1,20 @@
-<h1>Welcome Admin!</h1>
 
-<table class="small-12 columns">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Email</th>
-        <th>Admin</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
+
+<div class="row small-12 medium-6 columns">
+  <h3>Users:</h3>
+    <ul class="justified">
       <% @users.each do |user| %>
-        <tr>
-          <td><%= user.user_name %></td>
-          <td><%= user.email %></td>
+        <div class="inline-info">
+          <li><%= user.user_name %></li>
+          <li><%= user.email %></li>
           <% if user.admin %>
-            <td><%= link_to "Revoke Admin", "/admin/users/#{user.id}", id: "revoke-admin#{user.id}", method: :patch %></td>
+            <li><%= link_to "Revoke Admin", "/admin/users/#{user.id}", id: "revoke-admin#{user.id}", class: "button black-text", method: :patch %></li>
           <% else %>
-            <td><%= link_to "Make Admin", "/admin/users/#{user.id}", id: "make-admin#{user.id}", method: :patch %></td>
+            <li><%= link_to "Make Admin", "/admin/users/#{user.id}", id: "make-admin#{user.id}", class: "button black-text", method: :patch %></li>
           <% end %>
-          <td><%= link_to "Delete", "/admin/users/#{user.id}", id: "delete#{user.id}", method: :delete %></td>
-        </tr>
+          <li><%= link_to "Delete", "/admin/users/#{user.id}", class: "button purple-button", id: "delete#{user.id}", method: :delete %></li>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </ul>
+      <%= link_to "Back to Bookstores", root_path, class: "button purple-button" %>
+  </div>

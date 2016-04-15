@@ -1,26 +1,30 @@
 <div class="body-bookstore-show small-12 columns">
+
+<div class="row small-12 columns store-info">
+
+    <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
   <div class="small-12 medium-6 columns" id="book-show">
-    <div class="">
-      <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
-    </div>
-    <div class="row small-12 medium-6 columns" id="bookstore_image">
-      <img src="<%= @bookstore.img_url%>">
-    </div>
-    <div class="">
-      <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
-    </div>
-    <% if @bookstore.description.present? %>
-      <div id="bookstore_description">
-        Description: <%= @bookstore.description if @bookstore.description %>
-      </div>
-      <% end %>
 
-    <div id="bookstore_website">
-      <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
-    </div>
+
+
+  <div class="small-12 columns" id="bookstore_image">
+    <img src="<%= @bookstore.img_url%>">
   </div>
-    <div class="small-12 medium-6 columns">
+</div>
 
+<div class="small-12 medium-6 columns">
+  <div class="small-12 columns">
+    <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
+  </div>
+
+  <% if @bookstore.description.present? %>
+    <div class="small-12 columns" id="bookstore_description">
+      Description: <%= @bookstore.description if @bookstore.description %>
+    </div>
+  <% end %>
+
+  <div class-"small-12 columns" id="bookstore_website">
+    <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
   <div id="maphere">
   </div>
   <%= link_to "Get Map", api_bookstore_path(@bookstore), id: 'getmap' %>
@@ -30,27 +34,39 @@
   </div>
 
   <% if @bookstore.food == true %>
-    <div id="bookstore_food">
+    <div class="small-12 columns" id="bookstore_food">
       This bookstore serves food!
     </div >
   <% end %>
 
   <% if @bookstore.beverage == true %>
-    <div id="bookstore_beverages">
+    <div class="small-12 columns" id="bookstore_beverages">
       This bookstore serves beverages!
     </div>
   <% end %>
 
-  <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore) if current_user == @bookstore.user %>
-  <%= button_to "Delete Bookstore", @bookstore, method: :delete if current_user == @bookstore.user %>
-    </div>
   <div class="small-12 columns">
+    <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore), class: "button" if current_user == @bookstore.user %>
+  </div>
 
+  <div class="small-12 columns">
+    <%= button_to "Delete Bookstore", @bookstore, method: :delete, class: "button" if current_user == @bookstore.user %>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+
+<div class="row small-12 columns review-info">
+
+  <div class="small-12 medium-6 columns">
 
   <h4>Reviews:</h4>
 
       <% @reviews.each do |review| %>
-      <div class="small-12 medium-6 large-4 end columns media-object">
+      <div class="small-12 columns media-object">
         <div class="row small-12 columns">
           <div class=" media-object-section">
             <img class="thumbnail" src="<%= review.user.avatar %>" style="width: 50px; height: 50px"></a>
@@ -62,17 +78,15 @@
 
         <div class="row small-12 columns">
           <div class=" media-object-section">
-            <div>
-              <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
-            </div>
-            <div class= 'vote-total'>
-              Vote Total: <%= @vote_total[review.id] %>
-            </div>
-            <div>
 
+              <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
+
+            <div class='vote-total-<%= review.id %>'>
+            Total: <%= @vote_total[review.id] %>
+            </div>
 
               <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>
-            </div>
+
           </div>
 
           <div class=" media-object-section">
@@ -93,14 +107,19 @@
         </div>
       </div>
     <% end %>
+    <hr>
+    <div class="pagination">
+      <%= paginate @reviews %>
     </div>
 
-  <br>
-  <div class="small-12 medium-6 medium-centered columns">
+    </div>
 
 
+
+  <div class="small-12 medium-6 columns">
 
   <%= render '/reviews/form' %>
     </div>
+
   </div>
 </div>

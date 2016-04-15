@@ -8,7 +8,10 @@ class BookstoresController < ApplicationController
     @vote_total = Vote.group(:review_id).sum(:vote)
     @rating_collection = Review::RATINGS
     @review = Review.new
-    @reviews = @bookstore.reviews.order(:count).page params[:page]
+    @reviews = @bookstore.reviews.order(:count)
+    @reviews = @reviews.page params[:page]
+
+
 
   end
 
