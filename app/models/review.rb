@@ -31,4 +31,6 @@ class Review < ActiveRecord::Base
     scope: :bookstore_id,
     message: ": You have already reviewed this bookstore!"
   }
+
+  paginates_per 3
 end

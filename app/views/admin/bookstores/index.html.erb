@@ -1,20 +1,15 @@
-<h1>Welcome Admin!</h1>
 
-<table class="small-12 columns">
-    <thead>
-      <tr>
-        <th>Bookstore</th>
-        <th>Adress</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
+
+<div class="row small-12 medium-6 columns">
+
+<ul>
       <% @bookstores.each do |store| %>
-        <tr>
-          <td><%= link_to store.name, edit_admin_bookstore_path("#{store.id}")  %></td>
-          <td><%= store.address %>, <%= store.city %>, <%= store.state%></td>
-          <td><%= link_to "Delete", "/admin/bookstores/#{store.id}", id: "delete#{store.id}", method: :delete %></td>
-        </tr>
+        <div class="inline-books">
+          <li><%= link_to store.name, edit_admin_bookstore_path("#{store.id}")  %></li>
+          <li><%= store.address %>, <%= store.city %>, <%= store.state%></li>
+          <li><%= link_to "Delete", "/admin/bookstores/#{store.id}", id: "delete#{store.id}", method: :delete %></li>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </ul>
+    <%= link_to "Back to Bookstores", root_path, class: "button purple-button" %>
+  </div>
