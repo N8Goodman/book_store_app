@@ -1,3 +1,5 @@
+<div class="small-12 columns">
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -27,8 +29,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create Account" %>
+    <%= f.submit "Create Account", class: "button" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>
