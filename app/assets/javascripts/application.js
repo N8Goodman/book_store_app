@@ -22,13 +22,19 @@ $(function(){ $(document).foundation();
     event.preventDefault();
     event.stopPropagation();
     var url = $(this).parent().attr('action');
-    var voteTotal = $(this).parent().parent().find('.vote-total');
+    var backslash = "/"
+    var stringID = url.split(backslash);
+    var divId = stringID[2]
+    var voteTotal = $('.vote-total-' + divId);
+
     $.ajax({
       type: 'POST',
       url: '/api' + url,
       dataType: 'json',
       success: function(response) {
+
         voteTotal.text(response);
+
       },
       error: function(){
         alert('You must be signed in');
@@ -43,7 +49,10 @@ $(function(){ $(document).foundation();
     event.preventDefault();
     event.stopPropagation();
     var url = $(this).parent().attr('action');
-    var voteTotal = $(this).parent().parent().find('.vote-total');
+    var backslash = "/"
+    var stringID = url.split(backslash);
+    var divId = stringID[2]
+    var voteTotal = $('.vote-total-' + divId);
     $.ajax({
       type: 'POST',
       url: '/api'+url,
