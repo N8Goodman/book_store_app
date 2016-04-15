@@ -25,8 +25,7 @@
 
   <div class-"small-12 columns" id="bookstore_website">
     <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
-  <div id="maphere">
-  </div>
+
 
 
   <% if @bookstore.food == true %>
@@ -40,9 +39,13 @@
       This bookstore serves beverages!
     </div>
   <% end %>
+
+
   <div class="small-12 columns inline-links-div">
     <div class="margin-map-link">
       <%= link_to "Get Map", api_bookstore_path(@bookstore), class: "button purple-button margin-book-info", id: 'getmap' %>
+    </div>
+    <div id="maphere">
     </div>
 
     <div>
