@@ -55,31 +55,30 @@ $(function(){ $(document).foundation();
       }
     });
   });
+
+  $('#getmap').on('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var url = $(this).attr('href');
+    var request = $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'json',
+      success: function(response) {
+        $('#maphere').append("<div id='googleMap' style='width:500px;height:380px;'></div>");
+        initialize(response.latitude, response.longitude);
+      },
+    });
+  });
 });
 
 
 
-function initialize(lat, lng) {
+var initialize = function(lat, lng) {
   var mapProp = {
     center:new google.maps.LatLng(lat,lng),
     zoom:15,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  var map=new google.maps.Map(document.getElementById('googleMap'), mapProp);
 }
-
-window.onload = function() {
-  var id = window.location.pathname.match(/\/(\d+)$/)[1];
-  var url = "/api/bookstores/" + id;
-  var request = $.ajax({
-    type: "GET",
-    url: url,
-    dataType: 'json',
-    data: {
-      id: id
-    }
-  });
-  request.done(function(data){
-    initialize(data.latitude, data.longitude);
-  });
-};
