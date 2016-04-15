@@ -94,5 +94,6 @@ var initMap = function(lat, lng) {
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map
+
   });
 }
