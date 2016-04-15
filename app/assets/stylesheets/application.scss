@@ -128,7 +128,7 @@ input.button {
   margin-bottom: 50px;
 }
 
-.inline-books li {
+.inline-info li {
   display: inline-block;
 }
 
@@ -138,4 +138,12 @@ input.button {
 
 .pagination li.current {
   background-color: #32E8AB;
+}
+
+.justified {
+  text-align: right;
+}
+
+.black-text {
+  color: black;
 }

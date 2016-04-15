@@ -82,7 +82,7 @@
               <%= button_to "+1", upvote_review_votes_path(review), id: 'upvote', method: :post %>
 
             <div class='vote-total-<%= review.id %>'>
-            <%= @vote_total[review.id] %>
+            Total: <%= @vote_total[review.id] %>
             </div>
 
               <%= button_to "-1", downvote_review_votes_path(review), id: 'downvote', method: :post %>

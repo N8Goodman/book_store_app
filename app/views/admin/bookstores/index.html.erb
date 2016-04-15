@@ -1,13 +1,14 @@
 
 
-<div class="row small-12 medium-6 columns">
-
-<ul>
+<div class="row small-12 medium-7 columns">
+  <h3>Bookstores:</h3>
+<ul class="justified">
       <% @bookstores.each do |store| %>
-        <div class="inline-books">
+        <div class="inline-info">
           <li><%= link_to store.name, edit_admin_bookstore_path("#{store.id}")  %></li>
           <li><%= store.address %>, <%= store.city %>, <%= store.state%></li>
-          <li><%= link_to "Delete", "/admin/bookstores/#{store.id}", id: "delete#{store.id}", method: :delete %></li>
+          &nbsp;
+          <li><%= link_to "Delete", "/admin/bookstores/#{store.id}", id: "delete#{store.id}", class: "button purple-button", method: :delete %></li>
         </div>
       <% end %>
     </ul>
