@@ -17,9 +17,9 @@
     <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
   </div>
 
-  <% if @bookstore.description.present? %>
+  <% if !@bookstore.description.nil? %>
     <div class="small-12 columns" id="bookstore_description">
-      Description: <%= @bookstore.description if @bookstore.description %>
+      Description: <%= @bookstore.description %>
     </div>
   <% end %>
 
@@ -27,11 +27,7 @@
     <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
   <div id="maphere">
   </div>
-  <%= link_to "Get Map", api_bookstore_path(@bookstore), id: 'getmap' %>
 
-  <div id="bookstore_description">
-    Description: <%= @bookstore.description if @bookstore.description %>
-  </div>
 
   <% if @bookstore.food == true %>
     <div class="small-12 columns" id="bookstore_food">
@@ -44,13 +40,18 @@
       This bookstore serves beverages!
     </div>
   <% end %>
+  <div class="">
+
+
+    <%= link_to "Get Map", api_bookstore_path(@bookstore), class: "button purple-button", id: 'getmap' %>
+  </div>
 
   <div class="small-12 columns">
     <%= link_to "Edit Bookstore", edit_bookstore_path(@bookstore), class: "button" if current_user == @bookstore.user %>
   </div>
 
   <div class="small-12 columns">
-    <%= button_to "Delete Bookstore", @bookstore, method: :delete, class: "button" if current_user == @bookstore.user %>
+    <%= button_to "Delete Bookstore", @bookstore, class: "button purple-button", method: :delete, class: "button" if current_user == @bookstore.user %>
   </div>
 </div>
 

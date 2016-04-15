@@ -72,7 +72,6 @@ class Bookstore < ActiveRecord::Base
     scope: [:address, :city, :state],
     message: "already exists for this address"
   }
-      paginates_per 9
 
 
   def self.search(search)
