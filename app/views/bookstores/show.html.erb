@@ -21,8 +21,13 @@
   </div>
     <div class="small-12 medium-6 columns">
 
-  <div id="googleMap" style="width:500px;height:380px;"></div>
-</div>
+  <div id="maphere">
+  </div>
+  <%= link_to "Get Map", api_bookstore_path(@bookstore), id: 'getmap' %>
+
+  <div id="bookstore_description">
+    Description: <%= @bookstore.description if @bookstore.description %>
+  </div>
 
   <% if @bookstore.food == true %>
     <div id="bookstore_food">
