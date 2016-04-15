@@ -31,6 +31,9 @@ $(function(){ $(document).foundation();
       },
       error: function(){
         alert('You must be signed in');
+      },
+      complete: function(){
+        console.log('complete')
       }
     });
   });
@@ -53,3 +56,30 @@ $(function(){ $(document).foundation();
     });
   });
 });
+
+
+
+function initialize(lat, lng) {
+  var mapProp = {
+    center:new google.maps.LatLng(lat,lng),
+    zoom:15,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+
+window.onload = function() {
+  var id = window.location.pathname.match(/\/(\d+)$/)[1];
+  var url = "/api/bookstores/" + id;
+  var request = $.ajax({
+    type: "GET",
+    url: url,
+    dataType: 'json',
+    data: {
+      id: id
+    }
+  });
+  request.done(function(data){
+    initialize(data.latitude, data.longitude);
+  });
+};

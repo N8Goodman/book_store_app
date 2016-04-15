@@ -1,52 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href='https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=IM+Fell+French+Canon' rel='stylesheet' type='text/css'>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+<link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Yellowtail|Fredericka+the+Great|Black+Ops+One|Six+Caps|Slackey|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <title><%= content_for?(:title) ? yield(:title) : "Literalist" %></title>
 
-  <body>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-    <div class="callout primary" id = 'topbar'>
-      <div class="row column">
+<body>
+  <div class="top-bar">
+    <div class="row">
+      <div class="top-bar-left small-12 columns">
+        <div class="header-text">
+          <p class="" id="header-text"><%= link_to "Literalist", bookstores_path %></p>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <% if current_user && current_user.admin %>
+          <li class="has-submenu">
+            <a href="#">Admin</a>
+            <ul class="submenu menu vertical" data-submenu>
+              <li><%= link_to "Users", admin_users_path %></li>
+              <li><%= link_to "Bookstores", admin_bookstores_path %></li>
+            </ul>
+          </li>
+          <% end %>
+          <li class="has-submenu">
+            <a href="#">Account</a>
+            <ul class="submenu menu vertical" data-submenu>
+              <% if !user_signed_in?%>
+              <li>
+                <%= link_to "Sign In", new_user_session_path %>
+              </li>
+              <% else%>
+              <li>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              </li>
+              <li>
+                <%= link_to "Update Profile", edit_user_registration_path %>
+              </li>
+              <li>
+                <%= image_tag current_user.avatar.thumb.url if current_user.avatar.present? %>
+              </li>
+              <% end %>
+            </ul>
+          </li>
 
-        <h1 class="cursive" style="display: inline-block;">Literalist</h1>
 
-        <div style="float:right;">
-           <% if !user_signed_in?%>
-             <%= link_to "Sign In", new_user_session_path %>
-           <% else%>
-             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-             <%= link_to "Update Profile", edit_user_registration_path %>
-             <%= image_tag current_user.avatar.thumb.url if current_user.avatar.present? %>
-           <% end %>
-         </div>
 
-         <div class="search_bar">
-           <%= form_tag(bookstores_path, method: 'get', id: "search_bar") do %>
-             <%= text_field_tag :search, params[:search] %>
-             <%= submit_tag "Search", name: nil %>
-           <% end %>
-         </div>
+
+<li>
+<div id="search-input">
+          <%= form_tag(bookstores_path, method: 'get', id: "search_bar") do %>
+
+
+
+            <%= text_field_tag :search, params[:search], placeholder: "find bookstores!", type: "search" %>
+
+            <div id="search-button">
+
+
+            <%= submit_tag "Search", name: nil, class: "button" %>
+          </div>
+          <% end %>
+          </div>
+          </li>
+
+
+
+
+          <!-- <li><input action="/bookstores" type="search" placeholder="Search"></li>
+          <li><button type="submit" class="button">Search</button></li> -->
+        </ul>
       </div>
     </div>
+  </div>
 
-    <div class="notices">
-      <% flash.each do |name, msg| %>
-        <% if msg.is_a?(String) %>
-          <%= content_tag :div, msg, :class => "flash_#{name}" %>
-        <% end %>
+  <div class="notices small-12 columns" id="flash-notices">
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <%= content_tag :div, msg, :class => "flash_#{name}" %>
       <% end %>
-    </div>
-    <%= yield %>
+    <% end %>
+  </div>
+  <div class="small-12 columns">
 
-  </body>
+
+  <%= yield %>
+    </div>
+
+</body>
 </html>
