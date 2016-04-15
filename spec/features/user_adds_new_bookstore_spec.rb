@@ -16,7 +16,7 @@ feature "user adds a new bookstore page" do
     fill_in "Zip Code", with: "99999"
     click_button "Submit Bookstore"
 
-    expect(page).to have_content "Booky Reviews"
+    expect(page).to have_content "Booky"
   end
 
   scenario 'user tries to submit a blank form' do
