@@ -2,6 +2,7 @@ admin_user1 = User.find_by(email: "historybuff40@example.com")
 unless admin_user1.present?
   admin_user1 = User.create(
     user_name: "history_buff",
+    avatar: "uploads/users/admin_user1.jpeg",
     email: "historybuff40@example.com",
     password: ENV["ADMIN_1_KEY"],
     password_confirmation: ENV["ADMIN_1_KEY"],
@@ -14,6 +15,7 @@ unless admin_user2.present?
   admin_user2 = User.create(
     user_name: "admin1",
     email: "awesomeadmin@example.com",
+    avatar: "uploads/users/admin_user2.jpeg",
     password: ENV["ADMIN_2_KEY"],
     password_confirmation: ENV["ADMIN_2_KEY"],
     admin: true
@@ -24,6 +26,7 @@ non_admin_user1 = User.find_by(email: "booklover@example.com")
 unless non_admin_user1.present?
   non_admin_user1 = User.create(
     user_name: "booklover1",
+    avatar: "uploads/users/user1.jpeg",
     email: "booklover@example.com",
     password: "12345678",
     password_confirmation: "12345678"
@@ -35,6 +38,7 @@ unless non_admin_user2.present?
   non_admin_user2 = User.create(
     user_name: "mystery_kate",
     email: "mystery.kate8@example.com",
+    avatar: "uploads/users/user2.jpeg",
     password: "agathachristie",
     password_confirmation: "agathachristie"
 )
@@ -55,6 +59,7 @@ unless non_admin_user4.present?
   non_admin_user4 = User.create(
     user_name: "bookluv",
     email: "iluvbooks81@example.com",
+    avatar: "uploads/users/user4.jpeg",
     password: "booksforme",
     password_confirmation: "booksforme"
 )
@@ -65,6 +70,7 @@ unless non_admin_user5.present?
   non_admin_user5 = User.create(
     user_name: "sci-fi#1",
     email: "sci_fi_gal@example.com",
+    avatar: "uploads/users/user5.jpeg",
     password: "terrybrooks",
     password_confirmation: "terrybrooks"
 )
@@ -121,6 +127,7 @@ bookstore2 = Bookstore.find_or_create_by(
   state: "MA",
   zip_code: "02539",
   beverage: true,
+  description: " ",
   img_url: " http://www.octaviabooks.com/files/octaviabooks/Octavia_Books_10-09_106.jpg",
   user: non_admin_user6
 )
@@ -131,6 +138,7 @@ bookstore3 = Bookstore.find_or_create_by(
   city: "Cambridge",
   state: "MA",
   zip_code: "02142",
+  description: "When you come to Mystery Books you'll find a staff of voracious readers eager to recommend quality new and used books of all types.  Our display tables are covered with new releases, while our shelves are bursting with great backlist titles.",
   img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI1Atuoa6MRu5zKGB3Q5zXPfwDrfIIh6KpT0wBb3FpwFaB9Mal",
   user: non_admin_user5
 )
@@ -273,6 +281,9 @@ bookstore17 = Bookstore.find_or_create_by(
   city: "Boston",
   state: "MA",
   zip_code: "02111",
+  beverage: true,
+  food: true,
+  description: "We offer over 60,000 Books, Movies, LP's, CD's. We also recently begin serving Coffee, Teas & Cafe Food Items for all our events. Our hours will be expanding soon!",
   img_url: "http://mkandcompanyinteriordesign.files.wordpress.com/2014/01/rizzoli-bookstore-new_york_315_rizzoli_bookstore_4e9321fc6a1074205b0000e1_store_main_new.jpg",
   user: admin_user1
 )
@@ -323,6 +334,7 @@ bookstore22 = Bookstore.find_or_create_by(
   city: "Helena",
   state: "MT",
   zip_code: "59601",
+  description: "We are a bookshop, not a gift shop, so there's not much here except books.  However we do have some very nice journals, some excellent book lights, a small selection of cool gifts, and our own City Lights T-shirts.",
   img_url: "http://img2.10bestmedia.com/Images/Photos/34789/city-lights-bookstore-san-francisco-ca-usa-shopping-search-all-shopping-1554895_54_990x660_201406011146.jpg",
   user: admin_user1
 )
@@ -504,4 +516,64 @@ b6_review2 = Review.find_or_create_by(
   variety_rating: "4",
   customer_service_rating: "5",
   body: "Nice place."
+)
+
+b14_review1 = Review.find_or_create_by(
+  user: non_admin_user5,
+  bookstore: bookstore14,
+  overall_rating: "5",
+  price_rating: "5",
+  variety_rating: "3",
+  customer_service_rating: "4",
+  body: "If you want more bang for your buck this is the place."
+)
+
+b15_review1 = Review.find_or_create_by(
+  user: non_admin_user5,
+  bookstore: bookstore15,
+  overall_rating: "5",
+  price_rating: "5",
+  variety_rating: "5",
+  customer_service_rating: "5",
+  body: "Really love this particular store. It's big and they always have more books than my public library. I could spend the entire day there. "
+)
+
+b15_review2 = Review.find_or_create_by(
+  user: non_admin_user7,
+  bookstore: bookstore15,
+  overall_rating: "4",
+  price_rating: "5",
+  variety_rating: "5",
+  customer_service_rating: "3",
+  body: "Staff is overall friendly and helpful but it can get crowded and have long lines at busy times."
+)
+
+b17_review1 = Review.find_or_create_by(
+  user: non_admin_user3,
+  bookstore: bookstore17,
+  overall_rating: "5",
+  price_rating: "5",
+  variety_rating: "5",
+  customer_service_rating: "5",
+  body: "They have wonderful events and I especially enjoy the poetry readings here."
+)
+
+b18_review1 = Review.find_or_create_by(
+  user: non_admin_user6,
+  bookstore: bookstore18,
+  overall_rating: "5",
+  price_rating: "4",
+  variety_rating: "5",
+  customer_service_rating: "4",
+  body: "Besides books, they have some great cards, t-shirts, and other small finds.  There are play areas for kids, fantastical decorations, and shelves overflowing with...BOOKS!  It is beautiful."
+)
+
+b18_review2 = Review.find_or_create_by(
+  user: non_admin_user7,
+  bookstore: bookstore18,
+  overall_rating: "5",
+  price_rating: "5",
+  variety_rating: "5",
+  customer_service_rating: "5",
+  body: "SO fun! The best!"
 )
