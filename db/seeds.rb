@@ -80,6 +80,26 @@ unless non_admin_user6.present?
 )
 end
 
+non_admin_user7 = User.find_by(email: "thepearshape@example.com")
+unless non_admin_user7.present?
+  non_admin_user7 = User.create(
+    user_name: "pear83",
+    email: "thepearshape@example.com",
+    password: "fashion4me",
+    password_confirmation: "fashion4me"
+)
+end
+
+non_admin_user8 = User.find_by(email: "dark.apprentice@example.com")
+unless non_admin_user8.present?
+  non_admin_user8 = User.create(
+    user_name: "dark_side77",
+    email: "dark.apprentice@example.com",
+    password: "power4me",
+    password_confirmation: "power4me"
+)
+end
+
 bookstore1 = Bookstore.find_or_create_by(
   name: "Best Books",
   address: "101 Main St.",
@@ -322,26 +342,29 @@ b1_review4 = Review.find_or_create_by(
 
 b2_review1 = Review.find_or_create_by(
   user: admin_user1,
-  bookstore: bookstore1,
+  bookstore: bookstore2,
   overall_rating: "5",
   price_rating: "5",
   variety_rating: "5",
   customer_service_rating: "5",
+  beverage_rating: "5",
+  food_rating: "5",
   body: "Amazing!!!"
 )
 
 b2_review2 = Review.find_or_create_by(
   user: admin_user2,
-  bookstore: bookstore1,
+  bookstore: bookstore2,
   overall_rating: "2",
   price_rating: "2",
-  variety_rating: "2",
-  customer_service_rating: "2"
+  variety_rating: "3",
+  customer_service_rating: "3",
+  beverage_rating: "5"
 )
 
 b2_review3 = Review.find_or_create_by(
   user: non_admin_user7,
-  bookstore: bookstore1,
+  bookstore: bookstore2,
   overall_rating: "5",
   price_rating: "5",
   variety_rating: "5",
@@ -349,12 +372,50 @@ b2_review3 = Review.find_or_create_by(
   body: "Best bookstore ever!"
 )
 
-b2_review4 = Review.find_or_create_by(
+b3_review1 = Review.find_or_create_by(
   user: non_admin_user3,
-  bookstore: bookstore1,
+  bookstore: bookstore3,
   overall_rating: "3",
   price_rating: "3",
   variety_rating: "4",
   customer_service_rating: "2",
-  body: "Eh."
+  body: "I dunno. It was OK, I guess."
+)
+
+b3_review2 = Review.find_or_create_by(
+  user: non_admin_user6,
+  bookstore: bookstore3,
+  overall_rating: "3",
+  price_rating: "3",
+  variety_rating: "3",
+  customer_service_rating: "3"
+)
+
+b4_review1 = Review.find_or_create_by(
+  user: non_admin_user1,
+  bookstore: bookstore4,
+  overall_rating: "2",
+  price_rating: "3",
+  variety_rating: "2",
+  customer_service_rating: "2",
+  body: "Not. Impressed."
+)
+
+b4_review2 = Review.find_or_create_by(
+  user: non_admin_user2,
+  bookstore: bookstore4,
+  overall_rating: "1",
+  price_rating: "1",
+  variety_rating: "1",
+  customer_service_rating: "1",
+  body: "Awful! Stay away!"
+)
+
+b4_review3 = Review.find_or_create_by(
+  user: non_admin_user3,
+  bookstore: bookstore4,
+  overall_rating: "2",
+  price_rating: "1",
+  variety_rating: "2",
+  customer_service_rating: "1"
 )
