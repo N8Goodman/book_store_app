@@ -1,23 +1,28 @@
 <div class="body-bookstore-show small-12 columns">
-  <div class="small-12 medium-6 medium-centered columns" id="book-show">
+  <div class="small-12 medium-6 columns" id="book-show">
+    <div class="">
+      <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
+    </div>
+    <div  style="width: 300px; height: 300px" id="bookstore_image">
+      <img src="<%= @bookstore.img_url%>">
+    </div>
+    <div class="">
+      <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
+    </div>
+    <% if @bookstore.description.present? %>
+      <div id="bookstore_description">
+        Description: <%= @bookstore.description if @bookstore.description %>
+      </div>
+      <% end %>
 
-
-  <h1 id="bookstore_title"><%= @bookstore.name %> Reviews</h1>
-
-
-  <div id="bookstore_image">
-    <img src="<%= @bookstore.img_url%>">
+    <div id="bookstore_website">
+      <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
+    </div>
   </div>
-    <h4 id="bookstore_location"><%= @bookstore.address%><br><%= @bookstore.city%>, <%= @bookstore.state%> <%= @bookstore.zip_code%></h4>
+    <div class="small-12 medium-6 columns">
 
-  <div id="bookstore_website">
-    <%= link_to "Visit the website", @bookstore.url if @bookstore.url %>
-  </div>
-
-  <div id="bookstore_description">
-    Description: <%= @bookstore.description if @bookstore.description %>
-  </div>
-
+  <div id="googleMap" style="width:500px;height:380px;"></div>
+</div>
 
   <% if @bookstore.food == true %>
     <div id="bookstore_food">
@@ -37,11 +42,7 @@
   <div class="small-12 columns">
 
 
-  <h3>Reviews:</h3>
-
-
-
-
+  <h4>Reviews:</h4>
 
       <% @reviews.each do |review| %>
       <div class="small-12 medium-6 large-4 end columns media-object">
@@ -70,11 +71,14 @@
           </div>
 
           <div class=" media-object-section">
-            <p><%= review.body%></p>
-            <div>
+            <div class="small-12 columns">
+                <p><%= review.body%></p>
+            </div>
+
+            <div class="small-12 columns">
               Overall: <%= review.overall_rating %>, Price: <%= review.price_rating %>, Customer Service: <%= review.customer_service_rating %>
             </div>
-            <div>
+            <div class="small-12 columns">
               <%= link_to "Edit Review", edit_bookstore_review_path(@bookstore, review), class: "button" if current_user == review.user %>
             </div>
             <div>
@@ -84,11 +88,14 @@
         </div>
       </div>
     <% end %>
-
     </div>
 
   <br>
+  <div class="small-12 medium-6 medium-centered columns">
+
+
 
   <%= render '/reviews/form' %>
+    </div>
   </div>
 </div>
