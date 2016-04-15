@@ -1,0 +1,26 @@
+<h1>Edit <%=@bookstore.name %></h1>
+
+<%= render "form" %>
+<br>
+
+<h3>Reviews</h3>
+<table class="small-12 columns">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Overall Rating</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td><%= review.user.user_name %></td>
+          <td><%= review.overall_rating %></td>
+          <td><%= review.body %></td>
+
+          <td><%= link_to "Delete", "/admin/reviews/#{review.id}", id: "delete#{review.id}", method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

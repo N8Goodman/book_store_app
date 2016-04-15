@@ -5,6 +5,7 @@
       <tr>
         <th>User</th>
         <th>Email</th>
+        <th>Admin</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -13,6 +14,11 @@
         <tr>
           <td><%= user.user_name %></td>
           <td><%= user.email %></td>
+          <% if user.admin %>
+            <td><%= link_to "Revoke Admin", "/admin/users/#{user.id}", id: "revoke-admin#{user.id}", method: :patch %></td>
+          <% else %>
+            <td><%= link_to "Make Admin", "/admin/users/#{user.id}", id: "make-admin#{user.id}", method: :patch %></td>
+          <% end %>
           <td><%= link_to "Delete", "/admin/users/#{user.id}", id: "delete#{user.id}", method: :delete %></td>
         </tr>
       <% end %>

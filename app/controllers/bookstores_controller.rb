@@ -9,6 +9,7 @@ class BookstoresController < ApplicationController
     @rating_collection = Review::RATINGS
     @review = Review.new
     @reviews = @bookstore.reviews.order(:count).page params[:page]
+
   end
 
   def new
