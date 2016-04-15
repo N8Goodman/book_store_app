@@ -12,10 +12,13 @@
     </div>
   </div>
   <% end %>
-</div>
-<hr>
-<div class="pagination">
-  <%= paginate @bookstores %>
-</div>
+  <div class="">
 
-<%= link_to "Add New Bookstore", new_bookstore_path %>
+
+  <%= link_to "Add New Bookstore", new_bookstore_path, class: "button" %>
+    </div>
+    <hr>
+    <div class="pagination">
+      <%= paginate @bookstores %>
+    </div>
+</div>
