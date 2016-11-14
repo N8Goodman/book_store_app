@@ -6,7 +6,7 @@
 
 Ruby 2.3.0
 
-App Name: Liberalist
+App Name: Literalist
 
 Description: A review site that shows users a list of bookstores, along with the critiques and feedback of those who have been to these stores before in order to improve their experience.
 
